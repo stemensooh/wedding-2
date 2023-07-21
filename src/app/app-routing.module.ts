@@ -19,6 +19,14 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'profile',
+    component: AuthComponent,
+    loadChildren: () => import('./profile/profile.module').then((m) => m.ProfileModule),
+    data: {
+      breadcrumb: "auth"
+    }
+  },
+  {
     path: '',
     redirectTo: 'auth',
     pathMatch: 'full',

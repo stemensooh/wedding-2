@@ -10,6 +10,7 @@ import { LayoutsModule } from './layouts/layouts.module';
 import { SharedModule } from './shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthModule } from './auth/auth.module';
+import { ProfileRoutingModule } from './profile/profile-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +29,7 @@ import { AuthModule } from './auth/auth.module';
       scrollPositionRestoration: 'enabled',
     }),
     NgbModule,
+    ProfileRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

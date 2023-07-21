@@ -1,0 +1,25 @@
+<div class="container pt-4">
+  <div class="card">
+    <h5 class="card-header">
+      Configuración Cabecera
+    </h5>
+    <div class="card-body">
+      <ng-container [formGroup]="form">
+
+        <div class="row">
+          <div class="col-6">
+            <app-foto></app-foto>
+          </div>
+          <div class="col-6">
+            <label>
+              Mensaje
+              <span class="text-danger">*</span>
+            </label>
+            <!-- <input formControlName="mensaje" placeholder="Código del item" /> -->
+            <textarea rows="7" class="form-control" formControlName="mensaje" placeholder="Texto libre"></textarea>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div [formGroup]="form">
+  <label>Foto <span class="text-danger">*</span></label>
+  <div class="input-group">
+    <button class="btn btn-secondary" type="button" (click)="documento.click()">Elegir una imagen</button>
+    <input class="form-control" formControlName="nombre" type="text" readonly="readonly" />
+    <input #documento type="file" class="d-none" (change)="uploadFile($event)" />
+  </div>
+</div>
