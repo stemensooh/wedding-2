@@ -1,28 +1,38 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthComponent } from './auth/auth.component';
 
 export const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     loadChildren: () => import('./layouts/layouts.module').then(m => m.LayoutsModule),
     data: {
-      breadcrumb: "Blog"
+      breadcrumb: "Wedding"
+    }
+  },
+  {
+    path: 'auth',
+    component: AuthComponent,
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+    data: {
+      breadcrumb: "auth"
     }
   },
   {
     path: '',
-    redirectTo: '',
+    redirectTo: 'auth',
     pathMatch: 'full',
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    // preloadingStrategy: PreloadAllModules,
-    anchorScrolling: 'enabled',
-    scrollPositionRestoration: 'enabled'
-})],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, {
+      // preloadingStrategy: PreloadAllModules,
+      anchorScrolling: 'enabled',
+      scrollPositionRestoration: 'enabled',
+    }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
-
+export class AppRoutingModule {}

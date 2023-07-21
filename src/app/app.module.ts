@@ -9,24 +9,27 @@ import { AppComponent } from './app.component';
 import { LayoutsModule } from './layouts/layouts.module';
 import { SharedModule } from './shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutsModule,
+    AuthModule,
     HttpClientModule,
     CarouselModule,
     SharedModule,
-    RouterModule.forRoot(routes, { useHash: true, anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled' }),
-    NgbModule
-
+    RouterModule.forRoot(routes, {
+      useHash: true,
+      anchorScrolling: 'enabled',
+      scrollPositionRestoration: 'enabled',
+    }),
+    NgbModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

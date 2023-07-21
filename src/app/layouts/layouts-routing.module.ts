@@ -4,13 +4,6 @@ import { WeddingComponent } from './wedding/wedding.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: WeddingComponent,
-    data: {
-      title: 'Wedding',
-    },
-  },
-  {
     path: ':titulo',
     component: WeddingComponent,
     data: {

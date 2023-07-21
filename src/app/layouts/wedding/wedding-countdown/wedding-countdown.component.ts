@@ -8,11 +8,12 @@ import { WeddingResponseDto } from 'src/app/core/dtos/wedding-response.dto';
 })
 export class WeddingCountdownComponent implements OnInit, OnDestroy, OnChanges {
   @Input() wedding!: WeddingResponseDto;
-
+  fecha: Date | undefined;
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['wedding'].currentValue) {
       const wedding = changes['wedding'].currentValue as WeddingResponseDto;
       this.setTime(new Date(wedding.fecha));
+      this.fecha = wedding.fecha;
     }
   }
   public seconds: number = 0;
@@ -44,7 +45,7 @@ export class WeddingCountdownComponent implements OnInit, OnDestroy, OnChanges {
       document.getElementById('seconds')!.innerHTML = Math.floor(
         (distance % (1000 * 60)) / 1000
       ).toString();
-      
+
     }, this.seconds);
   }
 

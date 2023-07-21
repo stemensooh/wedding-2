@@ -37,7 +37,7 @@ export class WeddingGalleryComponent implements OnInit, OnChanges {
     //   ]
     // }
   };
-  
+
   updateMasonryLayout: boolean = false;
 
   constructor() {}
@@ -46,28 +46,10 @@ export class WeddingGalleryComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['wedding'].currentValue) {
       const wedding = changes['wedding'].currentValue as WeddingResponseDto;
-      this.fotos = wedding.galleries;
+      // this.fotos = wedding.galleries;
     }
   }
 
-  urlsAll: string[] = [
-    'assets/images/wedding-img/photo-album/1.jpg',
-    'assets/images/wedding-img/photo-album/2.jpg',
-    'assets/images/wedding-img/photo-album/3.jpg',
-    'assets/images/wedding-img/photo-album/1.jpg',
-    'assets/images/wedding-img/photo-album/2.jpg',
-  ];
-
-  urlsDesign: string[] = [
-    'assets/images/wedding-img/photo-album/1.jpg',
-    'assets/images/wedding-img/photo-album/2.jpg',
-  ];
-
-  urlsGraphics: string[] = [
-    'assets/images/wedding-img/photo-album/1.jpg',
-    'assets/images/wedding-img/photo-album/2.jpg',
-    'assets/images/wedding-img/photo-album/1.jpg',
-  ];
 
   public filterImg(item: any) {
     this.activeFilter = item;
