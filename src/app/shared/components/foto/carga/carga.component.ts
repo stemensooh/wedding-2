@@ -15,7 +15,7 @@ import { environment } from 'src/environments/environment';
 export class CargaComponent implements OnInit {
 
   @Input() tiposDocumentosCarga: string = '0';
-  @Output() documento = new EventEmitter<ImagenDto>();
+  @Output() imagen = new EventEmitter<ImagenDto>();
 
   form: FormGroup;
   isLoadingResults: boolean = false;
@@ -28,7 +28,6 @@ export class CargaComponent implements OnInit {
       archivo: [null],
       nombre: [null, Validators.required],
       tipo: [null],
-      file: [null],
     })
   }
 
@@ -54,10 +53,7 @@ export class CargaComponent implements OnInit {
           doc.archivo = data[1];
           doc.nombre = file.name;
 
-          this.form.patchValue({
-            documento: doc,
-            tipoDocumento: this.form.value.tipoDocumento
-          });
+          this.form.patchValue(doc);
 
           fileInput.files = null;
           this.cargarDocumento();
@@ -78,13 +74,12 @@ export class CargaComponent implements OnInit {
 
     const documento = this.form.value;
 
-    this.documento.emit(documento);
+    this.imagen.emit(documento);
 
     this.form = this.fb.group({
       archivo: [null],
       nombre: [null, Validators.required],
       tipo: [null],
-      file: [null],
     })
   }
 }
