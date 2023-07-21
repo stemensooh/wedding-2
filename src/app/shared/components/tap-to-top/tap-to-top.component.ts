@@ -18,7 +18,7 @@ export class TapToTopComponent implements OnInit {
   onActivate() {
     if (typeof window !== 'undefined') {
       const scrollToTop = window.setInterval(() => {
-        const pos = window.pageYOffset;
+        const pos = window.scrollY;
         if (pos > 0) {
           window.scrollTo(0, pos - 200); // how far to scroll on each step
         } else {
@@ -31,10 +31,10 @@ export class TapToTopComponent implements OnInit {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     if (typeof window !== 'undefined') {
-      if ((window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop) > this.showScrollHeight) {
+      if ((window.scrollY || document.documentElement.scrollTop || document.body.scrollTop) > this.showScrollHeight) {
         this.showScroll = true;
       }
-      else if (this.showScroll && (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop) < this.hideScrollHeight) {
+      else if (this.showScroll && (window.scrollY || document.documentElement.scrollTop || document.body.scrollTop) < this.hideScrollHeight) {
         this.showScroll = false;
       }
     }

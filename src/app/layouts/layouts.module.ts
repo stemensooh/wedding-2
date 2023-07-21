@@ -26,6 +26,8 @@ import { WeddingTestimonialComponent } from "./wedding/wedding-testimonial/weddi
 import { WeddingBrandComponent } from "./wedding/wedding-brand/wedding-brand.component";
 import { WeddingSubscribeComponent } from "./wedding/wedding-subscribe/wedding-subscribe.component";
 import { WeddingFooterComponent } from "./wedding/wedding-footer/wedding-footer.component";
+import { WeddingService } from "../core/services/wedding.service";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -64,5 +66,9 @@ import { WeddingFooterComponent } from "./wedding/wedding-footer/wedding-footer.
   exports: [
     
   ],
+  providers: [
+    HttpClientModule,
+    WeddingService
+  ]
 })
 export class LayoutsModule {}

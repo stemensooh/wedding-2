@@ -7,13 +7,20 @@ const routes: Routes = [
     path: '',
     component: WeddingComponent,
     data: {
-      title: "Wedding | Unice Landing Page"
-    }
+      title: 'Wedding',
+    },
   },
-]
+  {
+    path: ':titulo',
+    component: WeddingComponent,
+    data: {
+      title: 'Wedding',
+    },
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class LayoutsRoutingModule { }
+export class LayoutsRoutingModule {}

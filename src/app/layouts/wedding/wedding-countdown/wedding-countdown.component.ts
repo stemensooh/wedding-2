@@ -1,23 +1,32 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { WeddingResponseDto } from 'src/app/core/dtos/wedding-response.dto';
 
 @Component({
   selector: 'app-wedding-countdown',
   templateUrl: './wedding-countdown.component.html',
   styleUrls: ['./wedding-countdown.component.scss'],
 })
-export class WeddingCountdownComponent implements OnInit, OnDestroy {
+export class WeddingCountdownComponent implements OnInit, OnDestroy, OnChanges {
+  @Input() wedding!: WeddingResponseDto;
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['wedding'].currentValue) {
+      const wedding = changes['wedding'].currentValue as WeddingResponseDto;
+      this.setTime(new Date(wedding.fecha));
+    }
+  }
   public seconds: number = 0;
   public timer: any;
 
   constructor() {
-    this.setTime();
+    // this.setTime();
   }
 
   ngOnInit() {}
 
-  setTime() {
+  setTime(fecha: Date) {
     this.timer = setInterval(function () {
-      var countDown = new Date('dec 30, 2020 00:00:00').getTime();
+      var countDown = fecha.getTime();
       var now = new Date().getTime();
       var distance = countDown - now;
       document.getElementById('days')!.innerHTML = Math.floor(

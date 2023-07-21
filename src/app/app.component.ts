@@ -21,8 +21,8 @@ export class AppComponent implements OnInit {
     });
   }
 
-   
   public ngOnInit() {
+    this.customizeLayoutVersion('dark');
     let script = this._renderer2.createElement('script');
     script.src  = `/assets/tilt.js`;   
     this._renderer2.appendChild(this._document.body, script);

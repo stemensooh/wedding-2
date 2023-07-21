@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: 'wedding',
+    path: '',
     loadChildren: () => import('./layouts/layouts.module').then(m => m.LayoutsModule),
     data: {
       breadcrumb: "Blog"
@@ -11,13 +11,18 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'wedding',
+    redirectTo: '',
     pathMatch: 'full',
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    // preloadingStrategy: PreloadAllModules,
+    anchorScrolling: 'enabled',
+    scrollPositionRestoration: 'enabled'
+})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
