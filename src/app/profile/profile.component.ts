@@ -38,6 +38,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
+  guardarFormulario() {
+    console.log(this.form.value);
+  }
+
   get nav() {
     return this.form.get('nav') as FormGroup
   }

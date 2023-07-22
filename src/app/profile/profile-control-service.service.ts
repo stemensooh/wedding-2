@@ -16,6 +16,7 @@ export class ProfileControlServiceService {
         mensaje: [null]
       }),
       header: this.fb.group({
+        tituloPagina: [null],
         foto: [null],
         mensaje: [null],
       }),
@@ -24,7 +25,10 @@ export class ProfileControlServiceService {
         mensaje: [null],
       }),
       banner: this.fb.group({
-        nombres: [null],
+        nombreNovia: [null],
+        nombreNovio: [null],
+        apellidoNovia: [null],
+        apellidoNovio: [null],
         direccion1: [null],
         direccion2: [null]
       }),
