@@ -17,7 +17,7 @@ export class WeddingService {
   private handleError!: HandleError;
   constructor(
     private httpCliente: HttpClient,
-    private httpErrorHandler: HttpErrorHandlerService
+    httpErrorHandler: HttpErrorHandlerService
   ) {
     this.handleError = httpErrorHandler.createHandleError('WeddingService');
     this.urlApi = environment.apiUrl + '/wedding';

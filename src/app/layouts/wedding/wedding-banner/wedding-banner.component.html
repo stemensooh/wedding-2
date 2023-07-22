@@ -1,5 +1,6 @@
 <!-- banner section start-->
-<section class="wedding banner jenny-bg bg set-relative"  [style]="{'background-image': 'url(assets/images/wedding-img/backgrounds/jenny-bg.png)'}">
+<section class="wedding banner jenny-bg bg set-relative"
+    [style]="{'background-image': 'url(assets/images/wedding-img/backgrounds/jenny-bg.png)'}">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -10,16 +11,20 @@
                             <div class="text-container">
                                 <div class="couple-text">
                                     <h2 class="banner-text gradient-text">
-                                      {{cupler?.noviaNombre}}
+                                        {{banner?.nombreNovia}}
                                     </h2>
                                     <h2 class="banner-text gradient-text small">&</h2>
                                     <h2 class="banner-text gradient-text">
-                                      {{cupler?.novioNombre}}
+                                        {{banner?.nombreNovio}}
                                     </h2>
                                 </div>
                                 <div>
-                                    <h3 class="text-uppercase place">heaven GARDEN</h3>
-                                    <h4 class="address">399 Angel Street New York</h4>
+                                    <h3 class="text-uppercase place">
+                                        {{banner?.direccion1}}
+                                    </h3>
+                                    <h4 class="address">
+                                        {{banner?.direccion2}}
+                                    </h4>
                                 </div>
                             </div>
                         </div>

@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="col-xl-4 offset-xl-2 col-md-6">
-                <img src="assets/images/wedding-img/about-us.png" alt="" class="img-fluid about-img">
+                <img [src]="about.foto" alt="" class="img-fluid about-img">
             </div>
             <div class="col-xl-4 col-lg-6 col-md-6">
                 <div class="center-text">
@@ -28,15 +28,11 @@
                             <h3 class="about-font-header gradient-text">Acerca</h3>
                         </div>
                         <div class="format-sub-text">
-                            <p class="about-para">Lorem Ipsum is simply dummy text of the printing and typesetting
-                                industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since the 1500s.</p>
-                            <p class="about-para">When an unknown printer took a galley of type and scrambled it to make
-                                a type specimen
-                                book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry.</p>
+                            <p class="about-para">
+                                {{about.mensaje}}
+                            </p>
                         </div>
-                        <a href="javascript:void(0)" class=" btn btn-default btn-gradient text-white">lerr más...</a>
+                        <!-- <a href="javascript:void(0)" class=" btn btn-default btn-gradient text-white">lerr más...</a> -->
                     </div>
                 </div>
             </div>

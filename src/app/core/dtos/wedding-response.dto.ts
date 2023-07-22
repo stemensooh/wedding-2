@@ -1,80 +1,108 @@
 export class WeddingResponseDto {
-    _id!: string
-    fecha!: Date
-    resumen!: string
-    mensaje!: string
-    createdAt!: string
-    __v!: number
-    cupler!: CuplerDto[]
-    sliders!: SliderDto[]
-    galleries!: GalleryDto[]
-    events!: EventDto[]
-    timelines!: TimelineDto[]
-    maps!: MapDto[]
-  }
-  
-  export class CuplerDto {
-    _id!: string;
-    weddingId!: string;
-    novioNombre!: string;
-    novioApellido!: string;
-    novioFoto!: string;
-    novioDescripcion!: string;
-    noviaNombre!: string;
-    noviaApellido!: string;
-    noviaFoto!: string;
-    noviaDescripcion!: string;
-    createdAt!: string;
-    __v!: number;
-  }
-  
-  export class SliderDto {
-    _id!: string
-    weddingId!: string
-    titulo!: string
-    foto!: string
-    createdAt!: string
-    __v!: number
-  }
-  
-  export class GalleryDto {
-    _id!: string
-    weddingId!: string
-    titulo!: string
-    foto!: string
-    createdAt!: string
-    __v!: number
-  }
-  
-  export class EventDto {
-    _id!: string
-    weddingId!: string
-    titulo!: string
-    fecha!: string
-    descripcion!: string
-    createdAt!: string
-    __v!: number
-  }
-  
-  export class TimelineDto {
-    _id!: string
-    weddingId!: string
-    fecha!: string
-    titulo!: string
-    descripcion!: string
-    icono!: string
-    createdAt!: string
-    __v!: number
-  }
-  
-  export class MapDto {
-    _id!: string
-    weddingId!: string
-    descripcion!: string
-    lat!: number
-    lng!: number
-    mensaje!: string
-    createdAt!: string
-    __v!: number
-  }
-  
+  _id?:string
+  tituloPagina?:string
+  createdAt?:string
+  __v?:number
+  abouts?:About[]
+  banners?:Banner[]
+  blogs?:Blog[]
+  countdowns?:Countdown[]
+  galleries?:Gallery[]
+  headers?:Header[]
+  navcustoms?:Navcustom[]
+  testimonials?:Testimonial[]
+  whens?:When[]
+}
+
+export class About {
+  _id?:string
+  weddingId?:string
+  foto?:string
+  mensaje?:string
+  createdAt?:string
+  __v?:number
+}
+
+export class Banner {
+  _id?:string
+  weddingId?:string
+  nombreNovia?:string
+  nombreNovio?:string
+  apellidoNovia?:string
+  apellidoNovio?:string
+  direccion1?:string
+  direccion2?:string
+  createdAt?:string
+  __v?:number
+}
+
+export class Blog {
+  _id?:string
+  weddingId?:string
+  titulo?:string
+  fecha?:Date
+  lugar?:string
+  descripcion?:string
+  foto?:string
+  createdAt?:string
+  __v?:number
+}
+
+export class Countdown {
+  _id?:string
+  weddingId?:string
+  fecha?:Date
+  hora?:string
+  direccion?:string
+  url?:string
+  createdAt?:string
+  __v?:number
+}
+
+export class Gallery {
+  _id?:string
+  weddingId?:string
+  archivo?:string
+  nombre?:string
+  tipo?:string
+  createdAt?:string
+  __v?:number
+}
+
+export class Header {
+  _id?:string
+  weddingId?:string
+  foto?:string
+  mensaje?:string
+  createdAt?:string
+  __v?:number
+}
+
+export class Navcustom {
+  _id?:string
+  weddingId?:string
+  foto?:any
+  mensaje?:any
+  createdAt?:string
+  __v?:number
+}
+
+export class Testimonial {
+  _id?:string
+  weddingId?:string
+  descripcion?:string
+  autor?:string
+  parentezco?:string
+  createdAt?:string
+  __v?:number
+}
+
+export class When {
+  _id?:string
+  weddingId?:string
+  titulo?:string
+  hora?:string
+  descripcion?:string
+  createdAt?:string
+  __v?:number
+}

@@ -1,5 +1,5 @@
 export class BlogDto {
-    id!: string;
+    id?: string;
     titulo!: string;
     fecha!: Date;
     lugar!: string;

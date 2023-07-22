@@ -8,8 +8,9 @@ import {
   ViewChild,
 } from '@angular/core';
 import { NgxMasonryComponent, NgxMasonryOptions } from 'ngx-masonry';
+import { ImagenDto } from 'src/app/core/dtos/imagen.dto';
 import {
-  GalleryDto,
+  Gallery,
   WeddingResponseDto,
 } from 'src/app/core/dtos/wedding-response.dto';
 
@@ -21,7 +22,7 @@ import {
 export class WeddingGalleryComponent implements OnInit, OnChanges {
   @ViewChild('masonry') masonry!: NgxMasonryComponent
   @Input() wedding!: WeddingResponseDto;
-  fotos: GalleryDto[] = [];
+  fotos: Gallery[] = [];
   activeFilter = 'all';
   myOptions: NgxMasonryOptions = {
     originTop: true
@@ -35,7 +36,7 @@ export class WeddingGalleryComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['wedding'].currentValue) {
       const wedding = changes['wedding'].currentValue as WeddingResponseDto;
-      // this.fotos = wedding.galleries;
+      this.fotos = wedding.galleries ?? [];
     }
   }
 

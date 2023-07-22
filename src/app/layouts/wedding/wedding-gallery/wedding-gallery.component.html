@@ -18,7 +18,7 @@
     <ngx-masonry [options]="myOptions" #masonry class="masonry-grid m-layout margin_cls">
       <div ngxMasonryItem class="m-width m-3-col" (load)="updateMasonryLayout = !updateMasonryLayout"
         *ngFor="let foto of fotos">
-        <img class="img-fluid" [src]="foto.foto">
+        <img class="img-fluid" [src]="foto.archivo">
       </div>
     </ngx-masonry>
     <!-- <div class="row">

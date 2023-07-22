@@ -1,8 +1,7 @@
-import { Time } from "@angular/common";
 
 export class WhenDto {
-    id!: string;
+    id?: string;
     titulo!: string;
-    hora!: Time;
+    hora!: string;
     descripcion!: string;
 }

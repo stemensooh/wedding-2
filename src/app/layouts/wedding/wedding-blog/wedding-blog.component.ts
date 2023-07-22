@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { WeddingResponseDto } from 'src/app/core/dtos/wedding-response.dto';
+import { Blog, WeddingResponseDto } from 'src/app/core/dtos/wedding-response.dto';
 
 @Component({
   selector: 'app-wedding-blog',
@@ -8,43 +8,19 @@ import { WeddingResponseDto } from 'src/app/core/dtos/wedding-response.dto';
 })
 export class WeddingBlogComponent implements OnInit, OnChanges {
   @Input() wedding!: WeddingResponseDto;
+  blogs: Blog[] = [];
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['wedding'].currentValue) {
       const wedding = changes['wedding'].currentValue as WeddingResponseDto;
+      this.blogs = wedding.blogs ?? [];
+      console.log(this.blogs)
     }
   }
   constructor() { }
 
   ngOnInit() {
   }
-
-  blogs=[
-    {
-    img:"assets/images/wedding-img/blog/1.jpg",
-    text:"The Proposal",
-    date:"08/14/2015",
-    place:"Newyork",
-    description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit,…",
-    btn:"read more"
-  },
-  {
-    img:"assets/images/wedding-img/blog/2.jpg",
-    text:"The Proposal",
-    date:"08/14/2015",
-    place:"Newyork",
-    description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit,…",
-    btn:"read more"
-  },
-  {
-    img:"assets/images/wedding-img/blog/3.jpg",
-    text:"The Proposal",
-    date:"08/14/2015",
-    place:"Newyork",
-    description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit,…",
-    btn:"read more"
-  }
-]
 
 blagCarouselOptions=
   {

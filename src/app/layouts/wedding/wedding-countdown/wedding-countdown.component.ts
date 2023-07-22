@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import { WeddingResponseDto } from 'src/app/core/dtos/wedding-response.dto';
+import { Countdown, WeddingResponseDto } from 'src/app/core/dtos/wedding-response.dto';
 
 @Component({
   selector: 'app-wedding-countdown',
@@ -9,11 +9,18 @@ import { WeddingResponseDto } from 'src/app/core/dtos/wedding-response.dto';
 export class WeddingCountdownComponent implements OnInit, OnDestroy, OnChanges {
   @Input() wedding!: WeddingResponseDto;
   fecha: Date | undefined;
+  countdown?: Countdown;
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['wedding'].currentValue) {
       const wedding = changes['wedding'].currentValue as WeddingResponseDto;
-      this.setTime(new Date(wedding.fecha));
-      this.fecha = wedding.fecha;
+      this.countdown = wedding.countdowns ? wedding.countdowns[0] : undefined;
+      if (this.countdown) {
+        this.fecha = new Date(this.countdown?.fecha ?? new Date())
+        this.setTime(this.fecha);
+        
+      }
+      
+      
     }
   }
   public seconds: number = 0;

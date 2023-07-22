@@ -1,5 +1,5 @@
 export class TestimonioDto {
-    id!: string;
+    id?: string;
     descripcion!: string;
     autor!: string;
     parentezco!: string;

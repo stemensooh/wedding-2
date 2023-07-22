@@ -5,7 +5,7 @@ import {
   OnInit,
   SimpleChanges,
 } from '@angular/core';
-import { EventDto, WeddingResponseDto } from 'src/app/core/dtos/wedding-response.dto';
+import { WeddingResponseDto, When } from 'src/app/core/dtos/wedding-response.dto';
 
 @Component({
   selector: 'app-wedding-when-n-where',
@@ -14,7 +14,7 @@ import { EventDto, WeddingResponseDto } from 'src/app/core/dtos/wedding-response
 })
 export class WeddingWhenNWhereComponent implements OnInit, OnChanges {
   @Input() wedding!: WeddingResponseDto;
-  eventos: EventDto[] = [];
+  eventos: When[] = [];
   constructor() {}
 
   ngOnInit() {}
@@ -22,7 +22,7 @@ export class WeddingWhenNWhereComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['wedding'].currentValue) {
       const wedding = changes['wedding'].currentValue as WeddingResponseDto;
-      this.eventos = wedding.events;
+      this.eventos = wedding.whens ?? [];
     }
   }
 

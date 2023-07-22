@@ -4,8 +4,7 @@
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <div class="title">
-                    <img src="assets/images/wedding-img/bottom.png" alt=""
-                         class="img-fluid title-img">
+                    <img src="assets/images/wedding-img/bottom.png" alt="" class="img-fluid title-img">
                     <div class="main-title">
                         <h2 class="gradient-text">Nuestra hermosa historia</h2>
                     </div>
@@ -21,33 +20,43 @@
         <div></div>
         <div class="row">
             <div class="col-12">
-              <owl-carousel-o [options]="blagCarouselOptions">
-                <ng-container *ngFor="let blog of blogs">
-                  <ng-template carouselSlide class="item d-flex">
-                              <div class="d-flex blog-container">
-                                  <div class="row">
-                                      <div class="col-md-6 col-sm-8 offset-sm-2 offset-md-0 col-12">
-                                          <div class="set-skew">
-                                              <img [src]="blog.img" alt="" class="img-fluid">
-                                          </div>
-                                      </div>
-                                      <div class="col-md-6 col-sm-8 offset-sm-2 offset-md-0 col-12">
-                                          <div class="center-text">
-                                              <div>
-                                                  <h3 class="blog-text gradient-text"> {{blog.text}}</h3>
-                                                  <h6 class="blog-date">{{blog.date}}</h6>
-                                                  <h6 class="blog-place">{{blog.place}}</h6>
-                                                  <p class="blog-para">{{blog.description}}</p>
-                                                  <button class="btn btn-blog">{{blog.btn}}</button>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                  </ng-template>
-                </ng-container>
-                  </owl-carousel-o>
-                    <!-- <div class="item d-flex">
+                <owl-carousel-o [options]="blagCarouselOptions">
+                    <ng-container *ngFor="let blog of blogs">
+                        <ng-template carouselSlide class="item d-flex">
+                            <div class="d-flex blog-container">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-8 offset-sm-2 offset-md-0 col-12">
+                                        <div class="set-skew">
+                                            <img [src]="blog.foto" alt="" class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-8 offset-sm-2 offset-md-0 col-12">
+                                        <div class="center-text">
+                                            <div>
+                                                <h3 class="blog-text gradient-text">
+                                                    {{blog.titulo}}
+                                                </h3>
+                                                <h6 class="blog-date">
+                                                    {{blog.fecha }}
+                                                </h6>
+                                                <h6 class="blog-place">
+                                                    {{blog.lugar}}
+                                                </h6>
+                                                <p class="blog-para">
+                                                    {{blog.descripcion}}
+                                                </p>
+                                                <!-- <button class="btn btn-blog">
+                                                    {{blog.btn}}
+                                                </button> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>
+                <!-- <div class="item d-flex">
                         <div class="d-flex blog-container">
                             <div class="row">
                                 <div class="col-md-6 col-sm-8 offset-sm-2 offset-md-0 col-12">
@@ -93,8 +102,8 @@
                             </div>
                         </div>
                     </div> -->
-                </div>
             </div>
         </div>
+    </div>
 </section>
 <!-- blog section end-->
