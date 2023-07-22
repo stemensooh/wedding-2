@@ -1,1 +1,17 @@
-<p>profile-gallery works!</p>
+<div class="container pt-4">
+    <div class="card">
+      <h5 class="card-header">
+        Galería
+      </h5>
+      <div class="card-body">
+        <ng-container [formGroup]="form">
+          <div class="row">
+            <div class="col-12">
+              <app-foto [multiple]="true" [mostrarLista]="true" (imagenesOut)="cargarImagen($event)" [imagenes]="imagenes"></app-foto>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  

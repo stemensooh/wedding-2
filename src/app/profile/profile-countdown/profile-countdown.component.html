@@ -1,1 +1,41 @@
-<p>profile-countdown works!</p>
+<div class="container pt-4">
+    <div class="card">
+        <h5 class="card-header">
+            Cuenta regresiva
+        </h5>
+        <div class="card-body">
+            <ng-container [formGroup]="form">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>
+                            Fecha de matrimonio
+                            <span class="text-danger">*</span>
+                        </label>
+                        <input class="form-control" formControlName="fecha" type="date" />
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            Hora de matrimonio
+                            <span class="text-danger">*</span>
+                        </label>
+                        <input class="form-control" formControlName="hora" type="time" />
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            Dirección (Texto)
+                            <span class="text-danger">*</span>
+                        </label>
+                        <input class="form-control" formControlName="direccion" placeholder="Dirección (Texto)" />
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            Dirección (Url)
+                            <span class="text-danger">*</span>
+                        </label>
+                        <input class="form-control" formControlName="url" placeholder=" Dirección (Url)" />
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

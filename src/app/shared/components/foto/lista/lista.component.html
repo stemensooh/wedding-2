@@ -1,0 +1,20 @@
+<table class="table table-hover table-borderes">
+    <thead>
+        <tr>
+            <th>Eliminar</th>
+            <th>Nombre</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let imagen of imagenes">
+            <td>
+                <button type="button" class="btn btn-danger" (click)="eliminarImagen(imagen.id)">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </td>
+            <td>
+                {{imagen.nombre}}
+            </td>
+        </tr>
+    </tbody>
+</table>

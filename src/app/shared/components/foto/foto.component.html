@@ -1,8 +1,15 @@
 <div class="row">
-  <div class="col-12 text-center">
-    <app-vista-previa></app-vista-previa>
+  <div [class]="mostrarLista ? 'col-6' : 'col-12'" >
+    <div class="row">
+      <div class="col-12 text-center">
+        <app-vista-previa></app-vista-previa>
+      </div>
+      <div class="col-12 ">
+        <app-carga (imagen)="agregarDocumento($event)"></app-carga>
+      </div>
+    </div>
   </div>
-  <div class="col-12 ">
-    <app-carga (imagen)="agregarDocumento($event)"></app-carga>
+  <div class="col-6" *ngIf="mostrarLista">
+    <app-lista [imagenes]="imagenes" (imagenesOut)="eliminarImagen($event)"></app-lista>
   </div>
 </div>

@@ -24,18 +24,7 @@ export class WeddingGalleryComponent implements OnInit, OnChanges {
   fotos: GalleryDto[] = [];
   activeFilter = 'all';
   myOptions: NgxMasonryOptions = {
-    originTop: true,
-    // gutter: 0,
-    // columnWidth: 80,
-    // percentPosition: true,
-    // horizontalOrder: true
-    // animations: {
-    //   show: [
-    //     {
-    //       type: AnimationMetadataType.Animate
-    //     }
-    //   ]
-    // }
+    originTop: true
   };
 
   updateMasonryLayout: boolean = false;

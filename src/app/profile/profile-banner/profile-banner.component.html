@@ -1,1 +1,40 @@
-<p>profile-banner works!</p>
+<div class="container pt-4">
+    <div class="card">
+        <h5 class="card-header">
+            Banner
+        </h5>
+        <div class="card-body">
+            <ng-container [formGroup]="form">
+                <div class="row">
+                    <div class="col-6">
+                        <label>
+                            Nombres de los novios
+                            <span class="text-danger">*</span>
+                        </label>
+                        <input class="form-control" formControlName="nombres" placeholder="Nombres de los novios" />
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <label>
+                                    Dirección 1
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <input class="form-control" formControlName="direccion1"
+                                    placeholder="Dirección 1" />
+                            </div>
+                            <div class="col-12">
+                                <label>
+                                    Dirección 2
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <input class="form-control" formControlName="direccion2"
+                                    placeholder="Dirección 2" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

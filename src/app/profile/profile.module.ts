@@ -19,6 +19,7 @@ import { ProfileService } from '../core/services/profile.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FotoComponent } from '../shared/components/foto/foto.component';
+import { ListaComponent } from '../shared/components/foto/lista/lista.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { FotoComponent } from '../shared/components/foto/foto.component';
     FormsModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    FotoComponent
+    FotoComponent,
+    ListaComponent
   ],
   providers: [
     ProfileService

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +33,9 @@ export class ProfileControlServiceService {
       }),
       countdown: this.fb.group({
         fecha: [null],
-        direccion: [null]
+        hora: [null],
+        direccion: [null],
+        url: [null]
       }),
       blog: this.fb.group({
         bloc: [[]]

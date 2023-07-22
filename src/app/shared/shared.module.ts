@@ -10,9 +10,6 @@ import { CenterMenuComponent } from './components/navigation/center-menu/center-
 import { ToastrModule } from 'ngx-toastr';
 import { OrderByPipe } from './pipes/order-by.pipe';
 import { LoaderComponent } from './components/loader/loader.component';
-import { FotoComponent } from './components/foto/foto.component';
-import { CargaComponent } from './components/foto/carga/carga.component';
-import { VistaPreviaComponent } from './components/foto/vista-previa/vista-previa.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
