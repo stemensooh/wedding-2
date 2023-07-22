@@ -44,7 +44,7 @@ export class ProfileBlogComponent {
     this.form.patchValue({
       bloc: this.blocs
     });
-    console.log(this.form.value);
+    
     this.limpiar();
     this.getDismissReason(content)
   }
