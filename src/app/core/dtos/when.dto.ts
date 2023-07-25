@@ -1,7 +1,8 @@
-
 export class WhenDto {
-    id?: string;
-    titulo!: string;
-    hora!: string;
-    descripcion!: string;
+  uuid?: string;
+  //_id?: string;
+  weddingId?: string;
+  titulo!: string;
+  hora!: string;
+  descripcion!: string;
 }

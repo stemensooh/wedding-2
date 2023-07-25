@@ -1,5 +1,7 @@
 export class ImagenDto {
-  _id?: string;
+  uuid?: string;
+  //_id?: string;
+  weddingId?: string;
   archivo!: string;
   nombre!: string;
   tipo!: string;

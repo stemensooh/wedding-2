@@ -17,8 +17,8 @@ export class ListaComponent implements OnChanges {
   @Output() imagenesOut = new EventEmitter<ImagenDto[]>();
   @Output() vistaPrevia = new EventEmitter<string>();
 
-  eliminarImagen(id: string){
-    this.imagenes = this.imagenes.filter(x => x._id !== id);
+  eliminarImagen(uuid: string){
+    this.imagenes = this.imagenes.filter(x => x.uuid !== uuid);
     this.imagenesOut.emit(this.imagenes);
   }
 

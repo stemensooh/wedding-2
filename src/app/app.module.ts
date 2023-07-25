@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthModule } from './auth/auth.module';
 import { ProfileRoutingModule } from './profile/profile-routing.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,6 +30,7 @@ import { ProfileRoutingModule } from './profile/profile-routing.module';
       scrollPositionRestoration: 'enabled',
     }),
     NgbModule,
+    MatSnackBarModule,
     ProfileRoutingModule,
   ],
   providers: [],

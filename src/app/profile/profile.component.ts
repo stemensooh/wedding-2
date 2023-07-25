@@ -27,24 +27,22 @@ export class ProfileComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private profileService: ProfileService,
     private _router: ActivatedRoute,
-    private weddingService: WeddingService,
+    private weddingService: WeddingService
   ) {
     this.form = control.toForm();
-
 
     this._router.params.subscribe((params) => {
       this.weddingService
         .getTitulo(params['titulo'])
         .subscribe((data: WeddingResponseDto) => {
           this.wedding = data;
-          this.form = control.toForm( this.wedding);
+          this.form = control.toForm(this.wedding);
         });
     });
   }
 
   ngOnInit(): void {
     const wedding = localStorage.getItem('wedding');
-
   }
 
   ngOnDestroy(): void {
@@ -53,7 +51,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   guardarFormulario() {
     console.log(this.form.value);
-
     localStorage.setItem('wedding', JSON.stringify(this.form.value));
 
     // if (!this.form.valid) {
@@ -61,7 +58,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     //   console.log('no es valido')
     //   return;
     // }
-
+    const weddingId = this.form.value._id;
 
     const nav = this.nav.value;
     const header = this.header.value;
@@ -72,51 +69,62 @@ export class ProfileComponent implements OnInit, OnDestroy {
     const blog = this.blog.value.bloc as BlogDto[];
     const when = this.when.value.bloc as WhenDto[];
     const testimonial = this.testimonial.value.bloc as TestimonioDto[];
-    // const request: WeddingRequestDto = {};
-
 
     const request: WeddingRequestDto = {
-      _id: '',
-      nav: nav,
+      _id: weddingId,
+      nav: { ...nav, weddingId: weddingId },
       header: {
         ...header,
-        foto: header.foto?.archivo??''
+        weddingId: weddingId,
       },
       about: {
         ...about,
-        foto: about.foto?.archivo??''
+        weddingId: weddingId,
       },
-      banner: banner,
+      banner: { ...banner, weddingId: weddingId },
       gallery: [
-        ...gallery.map(item => {
-          item._id = undefined;
-          return item
-        })
-      ],
-      countdown: countdown,
-      blog: [
-        ...blog.map(item => {
-          item.id = undefined;
+        ...gallery.map((item) => {
+          item.weddingId = weddingId;
+          // item._id = undefined;
           return item;
-        })
+        }),
+      ],
+      countdown: { ...countdown, weddingId: weddingId },
+      blog: [
+        ...blog.map((item) => {
+          item.weddingId = weddingId;
+          // item._id = undefined;
+          return item;
+        }),
       ],
       when: [
-        ...when.map(item => {
-          item.id = undefined;
+        ...when.map((item) => {
+          item.weddingId = weddingId;
+          // item._id = undefined;
           return item;
-        })
+        }),
       ],
       testimonial: [
-        ...testimonial.map(item => {
-          item.id = undefined;
+        ...testimonial.map((item) => {
+          item.weddingId = weddingId;
+          // item._id = undefined;
           return item;
-        })
+        }),
       ],
     };
 
-    this.profileService.save(request).subscribe((data) => {
-      console.log('Response', data);
-    });
+    if (request._id) {
+      this.profileService.update(request).subscribe((data) => {
+        console.log('update', data);
+      });
+    } else {
+      this.profileService.create(request).subscribe((data) => {
+        if (data.status === 200) {
+          this.form = this.control.toForm(data.body as WeddingResponseDto);
+        }
+        console.log('create', data);
+      });
+    }
   }
 
   get nav() {

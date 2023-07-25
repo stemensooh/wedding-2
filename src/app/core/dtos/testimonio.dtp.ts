@@ -1,6 +1,8 @@
 export class TestimonioDto {
-    id?: string;
-    descripcion!: string;
-    autor!: string;
-    parentezco!: string;
+  uuid?: string;
+  //_id?: string;
+  weddingId?: string;
+  descripcion!: string;
+  autor!: string;
+  parentezco!: string;
 }

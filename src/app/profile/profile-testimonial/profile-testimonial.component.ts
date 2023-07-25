@@ -20,7 +20,7 @@ export class ProfileTestimonialComponent implements OnChanges {
 
   constructor(private modalService: NgbModal, private fb: FormBuilder) {
     this.formBloc = this.fb.group({
-      id: [null],
+      uuid: [null],
       autor: [null, Validators.required],
       parentezco: [null],
       descripcion: [null, Validators.required],
@@ -42,7 +42,7 @@ export class ProfileTestimonialComponent implements OnChanges {
 
     this.blocs.push({
       ...this.formBloc.value,
-      id: crypto.randomUUID()
+      uuid: crypto.randomUUID()
     });
 
     this.form.patchValue({
@@ -55,7 +55,7 @@ export class ProfileTestimonialComponent implements OnChanges {
 
   limpiar(){
     this.formBloc = this.fb.group({
-      id: [null],
+      uuid: [null],
       autor: [null, Validators.required],
       parentezco: [null],
       descripcion: [null, Validators.required],
@@ -85,8 +85,11 @@ export class ProfileTestimonialComponent implements OnChanges {
     }
   }
 
-  eliminar(id: string){
-    this.blocs = this.blocs.filter(x => x.id !== id)
+  eliminar(uuid: string){
+    this.blocs = this.blocs.filter(x => x.uuid !== uuid);
+    this.form.patchValue({
+      bloc: this.blocs
+    });
   }
 }
 

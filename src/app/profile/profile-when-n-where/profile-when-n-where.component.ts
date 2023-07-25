@@ -16,9 +16,9 @@ export class ProfileWhenNWhereComponent implements OnChanges {
 
   constructor(private modalService: NgbModal, private fb: FormBuilder) {
     this.formBloc = this.fb.group({
-      id: [null],
+      uuid: [null],
       titulo: [null, Validators.required],
-      hora: [Date, Validators.required],
+      hora: [null, Validators.required],
       descripcion: [null, Validators.required],
     });
   }
@@ -54,15 +54,18 @@ export class ProfileWhenNWhereComponent implements OnChanges {
 
   limpiar(){
     this.formBloc = this.fb.group({
-      id: [null],
+      uuid: [null],
       titulo: [null, Validators.required],
-      hora: [Date, Validators.required],
+      hora: [null, Validators.required],
       descripcion: [null, Validators.required],
     });
   }
 
-  eliminar(id: string){
-    this.blocs = this.blocs.filter(x => x.id !== id)
+  eliminar(uuid: string){
+    this.blocs = this.blocs.filter(x => x.uuid !== uuid);
+    this.form.patchValue({
+      bloc: this.blocs
+    });
   }
 
   guardar(content: any){
@@ -74,7 +77,7 @@ export class ProfileWhenNWhereComponent implements OnChanges {
 
     this.blocs.push({
       ...this.formBloc.value,
-      id: crypto.randomUUID()
+      uuid: crypto.randomUUID()
     });
 
     this.form.patchValue({

@@ -40,12 +40,13 @@ export class Blog {
   _id?:string
   weddingId?:string
   titulo?:string
-  fecha?:Date
+  fecha?:string
   lugar?:string
   descripcion?:string
   foto?:string
   createdAt?:string
   __v?:number
+  uuid?: string;
 }
 
 export class Countdown {
@@ -67,6 +68,7 @@ export class Gallery {
   tipo?:string
   createdAt?:string
   __v?:number
+  uuid?: string;
 }
 
 export class Header {
@@ -95,6 +97,7 @@ export class Testimonial {
   parentezco?:string
   createdAt?:string
   __v?:number
+  uuid?: string;
 }
 
 export class When {
@@ -105,4 +108,5 @@ export class When {
   descripcion?:string
   createdAt?:string
   __v?:number
+  uuid?: string;
 }

@@ -1,8 +1,10 @@
 export class BlogDto {
-    id?: string;
-    titulo!: string;
-    fecha!: Date;
-    lugar!: string;
-    descripcion!: string;
-    foto!: string
+  uuid?: string;
+  //_id?: string;
+  weddingId?: string;
+  titulo!: string;
+  fecha!: string;
+  lugar!: string;
+  descripcion!: string;
+  foto!: string;
 }

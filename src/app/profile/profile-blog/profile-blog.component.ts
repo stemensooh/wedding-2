@@ -19,9 +19,9 @@ export class ProfileBlogComponent implements OnChanges {
 
   constructor(private modalService: NgbModal, private fb: FormBuilder) {
     this.formBloc = this.fb.group({
-      id: [null],
+      uuid: [null],
       titulo: [null, Validators.required],
-      fecha: [Date, Validators.required],
+      fecha: [null, Validators.required],
       lugar: [null, Validators.required],
       descripcion: [null, Validators.required],
       foto: [null, Validators.required],
@@ -44,7 +44,7 @@ export class ProfileBlogComponent implements OnChanges {
     this.blocs.push({
       ...this.formBloc.value,
       foto: this.imagen,
-      id: crypto.randomUUID()
+      uuid: crypto.randomUUID()
     });
 
     this.form.patchValue({
@@ -76,9 +76,9 @@ export class ProfileBlogComponent implements OnChanges {
   limpiar(){
     this.imagen = '';
     this.formBloc = this.fb.group({
-      id: [null],
+      uuid: [null],
       titulo: [null, Validators.required],
-      fecha: [Date, Validators.required],
+      fecha: [null, Validators.required],
       lugar: [null, Validators.required],
       descripcion: [null, Validators.required],
       foto: [null, Validators.required],
@@ -108,7 +108,10 @@ export class ProfileBlogComponent implements OnChanges {
     }
   }
 
-  eliminar(id: string){
-    this.blocs = this.blocs.filter(x => x.id !== id)
+  eliminar(uuid: string){
+    this.blocs = this.blocs.filter(x => x.uuid !== uuid);
+    this.form.patchValue({
+      bloc: this.blocs
+    });
   }
 }

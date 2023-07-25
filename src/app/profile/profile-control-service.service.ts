@@ -13,87 +13,183 @@ export class ProfileControlServiceService {
     return this.fb.group({
       _id: [wedding?._id],
       nav: this.fb.group({
-        foto: [wedding?.navcustoms ? wedding.navcustoms[0].foto : null],
-        mensaje: [wedding?.navcustoms ? wedding.navcustoms[0].mensaje : null],
+        _id: [
+          wedding?.navcustoms && wedding?.navcustoms.length > 0
+            ? wedding.navcustoms[0]._id
+            : undefined,
+        ],
+        foto: [
+          wedding?.navcustoms && wedding?.navcustoms.length > 0
+            ? wedding.navcustoms[0].foto
+            : undefined,
+        ],
+        mensaje: [
+          wedding?.navcustoms && wedding?.navcustoms.length > 0
+            ? wedding.navcustoms[0].mensaje
+            : undefined,
+        ],
       }),
       header: this.fb.group({
-        tituloPagina: [wedding?.tituloPagina, Validators.required],
+        _id: [
+          wedding?.headers && wedding?.headers.length > 0
+            ? wedding.headers[0]._id
+            : undefined,
+        ],
+        tituloPagina: [
+          {
+            value: wedding?.tituloPagina,
+            disabled: wedding,
+          },
+          Validators.required,
+        ],
         foto: [
-          wedding?.headers ? wedding.headers[0].foto : null,
+          wedding?.headers && wedding?.headers.length > 0
+            ? wedding.headers[0].foto
+            : undefined,
           Validators.required,
         ],
         mensaje: [
-          wedding?.headers ? wedding.headers[0].mensaje : null,
+          wedding?.headers && wedding?.headers.length > 0
+            ? wedding.headers[0].mensaje
+            : undefined,
           Validators.required,
         ],
       }),
       about: this.fb.group({
+        _id: [
+          wedding?.abouts && wedding?.abouts.length > 0
+            ? wedding.abouts[0]._id
+            : undefined,
+        ],
         foto: [
-          wedding?.abouts ? wedding.abouts[0].foto : null,
+          wedding?.abouts && wedding?.abouts.length > 0
+            ? wedding.abouts[0].foto
+            : undefined,
           Validators.required,
         ],
         mensaje: [
-          wedding?.abouts ? wedding.abouts[0].mensaje : null,
+          wedding?.abouts && wedding?.abouts.length > 0
+            ? wedding.abouts[0].mensaje
+            : undefined,
           Validators.required,
         ],
       }),
       banner: this.fb.group({
+        _id: [
+          wedding?.banners && wedding?.banners.length > 0
+            ? wedding.banners[0]._id
+            : undefined,
+        ],
         nombreNovia: [
-          wedding?.banners ? wedding.banners[0].nombreNovia : null,
+          wedding?.banners && wedding?.banners.length > 0
+            ? wedding.banners[0].nombreNovia
+            : undefined,
           Validators.required,
         ],
         nombreNovio: [
-          wedding?.banners ? wedding.banners[0].nombreNovio : null,
+          wedding?.banners && wedding?.banners.length > 0
+            ? wedding.banners[0].nombreNovio
+            : undefined,
           Validators.required,
         ],
         apellidoNovia: [
-          wedding?.banners ? wedding.banners[0].apellidoNovia : null,
+          wedding?.banners && wedding?.banners.length > 0
+            ? wedding.banners[0].apellidoNovia
+            : undefined,
           Validators.required,
         ],
         apellidoNovio: [
-          wedding?.banners ? wedding.banners[0].apellidoNovio : null,
+          wedding?.banners && wedding?.banners.length > 0
+            ? wedding.banners[0].apellidoNovio
+            : undefined,
           Validators.required,
         ],
         direccion1: [
-          wedding?.banners ? wedding.banners[0].direccion1 : null,
+          wedding?.banners && wedding?.banners.length > 0
+            ? wedding.banners[0].direccion1
+            : undefined,
           Validators.required,
         ],
         direccion2: [
-          wedding?.banners ? wedding.banners[0].direccion2 : null,
+          wedding?.banners && wedding?.banners.length > 0
+            ? wedding.banners[0].direccion2
+            : undefined,
           Validators.required,
         ],
       }),
       gallery: this.fb.group({
-        fotos: [wedding?.galleries ?? [], Validators.required],
+        fotos: [
+          wedding?.galleries
+            ? wedding.galleries.map((item) => {
+              item.uuid = crypto.randomUUID();
+                return item;
+              })
+            : [],
+          Validators.required,
+        ],
       }),
       countdown: this.fb.group({
+        _id: [
+          wedding?.countdowns && wedding?.countdowns.length > 0
+            ? wedding.countdowns[0]._id
+            : undefined,
+        ],
         fecha: [
-          wedding?.countdowns ? wedding.countdowns[0].fecha : null,
+          wedding?.countdowns && wedding?.countdowns.length > 0
+            ? wedding.countdowns[0].fecha
+            : undefined,
           Validators.required,
         ],
         hora: [
-          wedding?.countdowns ? wedding.countdowns[0].hora : null,
+          wedding?.countdowns && wedding?.countdowns.length > 0
+            ? wedding.countdowns[0].hora
+            : undefined,
           Validators.required,
         ],
         direccion: [
-          wedding?.countdowns ? wedding.countdowns[0].direccion : null,
+          wedding?.countdowns && wedding?.countdowns.length > 0
+            ? wedding.countdowns[0].direccion
+            : undefined,
           Validators.required,
         ],
         url: [
-          wedding?.countdowns ? wedding.countdowns[0].url : null,
+          wedding?.countdowns && wedding?.countdowns.length > 0
+            ? wedding.countdowns[0].url
+            : undefined,
           Validators.required,
         ],
       }),
       blog: this.fb.group({
-        bloc: [wedding?.blogs ? wedding.blogs : [], Validators.required],
+        bloc: [
+          wedding?.blogs
+            ? wedding.blogs.map((item) => {
+              item.uuid = crypto.randomUUID();
+                return item;
+              })
+            : [],
+          Validators.required,
+        ],
       }),
       when: this.fb.group({
-        bloc: [wedding?.whens ? wedding.whens : [], Validators.required],
+        bloc: [
+          wedding?.whens
+            ? wedding.whens.map((item) => {
+              item.uuid = crypto.randomUUID();
+                return item;
+              })
+            : [],
+          Validators.required,
+        ],
       }),
       counter: this.fb.group({}),
       testimonial: this.fb.group({
         bloc: [
-          wedding?.testimonials ? wedding.testimonials : [],
+          wedding?.testimonials
+            ? wedding.testimonials.map((item) => {
+              item.uuid = crypto.randomUUID();
+                return item;
+              })
+            : [],
           Validators.required,
         ],
       }),

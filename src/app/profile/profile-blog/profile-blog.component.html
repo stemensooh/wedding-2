@@ -17,7 +17,7 @@
                 <tbody>
                     <tr *ngFor="let item of blocs">
                         <td>
-                            <button type="button" class="btn btn-danger" (click)="eliminar(item?.id ?? '')">
+                            <button type="button" class="btn btn-danger" (click)="eliminar(item?.uuid ?? '')">
                                 <i class="fa fa-trash"></i>
                             </button>
                         </td>

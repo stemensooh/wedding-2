@@ -6,25 +6,24 @@ import {
   HandleError,
   HttpErrorHandlerService,
 } from './http-error-handler.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { WeddingRequestDto } from '../dtos/wedding.request.dto';
+import { HttpResult, httpOptions } from '../models/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProfileService {
-
-  
-
   private urlApi: string;
   private handleError!: HandleError;
+
   constructor(
     private httpCliente: HttpClient,
     httpErrorHandler: HttpErrorHandlerService
   ) {
     this.urlApi = environment.apiUrl + '/profile';
-    this.handleError = httpErrorHandler.createHandleError('WeddingService');
+    this.handleError = httpErrorHandler.createHandleError('ProfileService');
   }
   get(): Observable<WeddingResponseDto> {
     const url = `${this.urlApi}/`;
@@ -33,15 +32,19 @@ export class ProfileService {
       .pipe(catchError(this.handleError<WeddingResponseDto>('getById')));
   }
 
-  save(create: WeddingRequestDto){
-    const headers= new HttpHeaders()
-  .set('content-type', 'application/json')
-  .set('Access-Control-Allow-Origin', '*');
-
-    console.log(create);
+  create(create: WeddingRequestDto): Observable<HttpResponse<HttpResult>>  {
+    console.log('create', create);
     const url = `${this.urlApi}/`;
     return this.httpCliente
-      .post<WeddingResponseDto>(url, create, { 'headers': headers })
-      .pipe(catchError(this.handleError<WeddingResponseDto>('save')));
+      .post<HttpResult>(url, create, httpOptions)
+      .pipe(catchError(this.handleError<HttpResponse<HttpResult>>('create')));
+  }
+
+  update(update: WeddingRequestDto): Observable<HttpResponse<HttpResult>> {
+    console.log('update', update);
+    const url = `${this.urlApi}/`;
+    return this.httpCliente
+      .put<HttpResult>(url, update, httpOptions)
+      .pipe(catchError(this.handleError<HttpResponse<HttpResult>>('update')));
   }
 }

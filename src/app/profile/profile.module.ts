@@ -13,11 +13,9 @@ import { ProfileCounterComponent } from './profile-counter/profile-counter.compo
 import { ProfileTestimonialComponent } from './profile-testimonial/profile-testimonial.component';
 import { ProfileFooterComponent } from './profile-footer/profile-footer.component';
 import { ProfileNavComponent } from './profile-nav/profile-nav.component';
-import { WeddingService } from '../core/services/wedding.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileService } from '../core/services/profile.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FotoComponent } from '../shared/components/foto/foto.component';
 import { ListaComponent } from '../shared/components/foto/lista/lista.component';
 
@@ -42,9 +40,9 @@ import { ListaComponent } from '../shared/components/foto/lista/lista.component'
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSnackBarModule,
     FotoComponent,
-    ListaComponent
+    ListaComponent,
+    
   ],
   providers: [
     ProfileService

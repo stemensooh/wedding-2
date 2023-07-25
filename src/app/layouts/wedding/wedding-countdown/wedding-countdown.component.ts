@@ -15,7 +15,7 @@ export class WeddingCountdownComponent implements OnInit, OnDestroy, OnChanges {
       const wedding = changes['wedding'].currentValue as WeddingResponseDto;
       this.countdown = wedding.countdowns ? wedding.countdowns[0] : undefined;
       if (this.countdown) {
-        this.fecha = new Date(this.countdown?.fecha ?? new Date())
+        this.fecha = new Date(`${this.countdown?.fecha}T${this.countdown?.hora}`)
         this.setTime(this.fecha);
         
       }
