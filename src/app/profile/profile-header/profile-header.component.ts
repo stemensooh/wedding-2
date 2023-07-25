@@ -21,13 +21,8 @@ export class ProfileHeaderComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['form'].currentValue){
-      console.log(changes['form'].currentValue);
+    if (changes['form'].currentValue) {
       this.IMAGE = changes['form'].currentValue.value.foto;
-      // this.form.patchValue({
-      //   foto: this.IMAGE
-      // })
     }
   }
-
 }

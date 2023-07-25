@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ProfileControlServiceService } from './profile-control-service.service';
 import { Subscription } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { WeddingService } from '../core/services/wedding.service';
 import { ProfileService } from '../core/services/profile.service';
 import { WeddingRequestDto } from '../core/dtos/wedding.request.dto';
@@ -24,14 +24,14 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   constructor(
     private control: ProfileControlServiceService,
-    private route: ActivatedRoute,
     private profileService: ProfileService,
-    private _router: ActivatedRoute,
-    private weddingService: WeddingService
+    private _route: ActivatedRoute,
+    private weddingService: WeddingService,
+    private router: Router
   ) {
     this.form = control.toForm();
 
-    this._router.params.subscribe((params) => {
+    this._route.params.subscribe((params) => {
       this.weddingService
         .getTitulo(params['titulo'])
         .subscribe((data: WeddingResponseDto) => {
@@ -114,15 +114,22 @@ export class ProfileComponent implements OnInit, OnDestroy {
     };
 
     if (request._id) {
-      this.profileService.update(request).subscribe((data) => {
-        console.log('update', data);
+      this.profileService.update(request).subscribe((response) => {
+        if (response.status === 200) {
+          this.router.navigate([
+            '/profile',
+            `${(response.body as WeddingResponseDto).tituloPagina}`,
+          ]);
+        }
       });
     } else {
-      this.profileService.create(request).subscribe((data) => {
-        if (data.status === 200) {
-          this.form = this.control.toForm(data.body as WeddingResponseDto);
+      this.profileService.create(request).subscribe((response) => {
+        if (response.status === 200) {
+          this.router.navigate([
+            '/profile',
+            `${(response.body as WeddingResponseDto).tituloPagina}`,
+          ]);
         }
-        console.log('create', data);
       });
     }
   }
