@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BlogDto } from 'src/app/core/dtos/blog.dto';
@@ -8,7 +8,7 @@ import { BlogDto } from 'src/app/core/dtos/blog.dto';
   templateUrl: './profile-blog.component.html',
   styleUrls: ['./profile-blog.component.scss'],
 })
-export class ProfileBlogComponent {
+export class ProfileBlogComponent implements OnChanges {
   @Input() form!: FormGroup;
 
   formBloc!: FormGroup;
@@ -26,6 +26,12 @@ export class ProfileBlogComponent {
       descripcion: [null, Validators.required],
       foto: [null, Validators.required],
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['form'].currentValue){
+      this.blocs = changes['form'].currentValue.value.bloc;
+    }
   }
 
   guardar(content: any){

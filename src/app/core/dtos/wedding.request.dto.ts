@@ -43,7 +43,7 @@ export class BannerRequestDto {
 }
 
 export class CountdownRequestDto {
-  fecha?: Date;
+  fecha?: string;
   hora?: string;
   direccion?: string;
   url?: string;

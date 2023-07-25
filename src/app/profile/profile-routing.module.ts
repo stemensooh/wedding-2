@@ -11,6 +11,13 @@ const routes: Routes = [
       title: 'profile',
     },
   },
+  {
+    path: ':titulo',
+    component: ProfileComponent,
+    data: {
+      title: 'profile',
+    },
+  },
 ];
 
 @NgModule({

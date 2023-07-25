@@ -13,6 +13,7 @@ import { ListaComponent } from './lista/lista.component';
 })
 export class FotoComponent {
   @Input() multiple: boolean = false;
+  @Input() medidas: string = '';
   @Input() mostrarLista: boolean = false;
   @Input() imagenes: ImagenDto[] = [];
   @Output() imagenesOut = new EventEmitter<ImagenDto[]>();
@@ -23,6 +24,7 @@ export class FotoComponent {
     if (!this.multiple) {
       this.imagenes = [];
     }
+    this.medidas = imagen.archivo;
     this.imagenes.push(imagen);
     this.imagenesOut.emit(this.imagenes);
   }
@@ -30,5 +32,9 @@ export class FotoComponent {
   eliminarImagen(imagenes: ImagenDto[]) {
     this.imagenes = imagenes;
     this.imagenesOut.emit(this.imagenes);
+  }
+
+  verImagen(imagen: string){
+    this.medidas = imagen;
   }
 }

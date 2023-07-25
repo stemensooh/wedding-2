@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChanges, OnChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BlogDto } from 'src/app/core/dtos/blog.dto';
@@ -9,7 +9,7 @@ import { TestimonioDto } from 'src/app/core/dtos/testimonio.dtp';
   templateUrl: './profile-testimonial.component.html',
   styleUrls: ['./profile-testimonial.component.scss']
 })
-export class ProfileTestimonialComponent {
+export class ProfileTestimonialComponent implements OnChanges {
   @Input() form!: FormGroup;
 
   
@@ -25,6 +25,12 @@ export class ProfileTestimonialComponent {
       parentezco: [null],
       descripcion: [null, Validators.required],
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['form'].currentValue){
+      this.blocs = changes['form'].currentValue.value.bloc;
+    }
   }
 
   guardar(content: any){

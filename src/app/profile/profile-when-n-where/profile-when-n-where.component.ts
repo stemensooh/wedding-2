@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChanges, OnChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { WhenDto } from 'src/app/core/dtos/when.dto';
@@ -8,7 +8,7 @@ import { WhenDto } from 'src/app/core/dtos/when.dto';
   templateUrl: './profile-when-n-where.component.html',
   styleUrls: ['./profile-when-n-where.component.scss']
 })
-export class ProfileWhenNWhereComponent {
+export class ProfileWhenNWhereComponent implements OnChanges {
   @Input() form!: FormGroup;
   formBloc!: FormGroup;
   blocs: WhenDto[] = [];
@@ -21,6 +21,12 @@ export class ProfileWhenNWhereComponent {
       hora: [Date, Validators.required],
       descripcion: [null, Validators.required],
     });
+  }
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['form'].currentValue){
+      this.blocs = changes['form'].currentValue.value.bloc;
+    }
   }
 
   open(content: any) {

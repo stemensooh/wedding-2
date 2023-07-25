@@ -1,5 +1,5 @@
 export class ImagenDto {
-  id?: string;
+  _id?: string;
   archivo!: string;
   nombre!: string;
   tipo!: string;

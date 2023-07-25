@@ -1066,7 +1066,7 @@ section {
     }
     &.hover-overlay {
       &:hover {
-        background: url("../../images/price.jpg");
+        //background: url("../../images/price.jpg");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -2333,7 +2333,7 @@ body {
     bottom: 0;
     width: 100%;
     animation: move-img 10s linear infinite;
-    background-image: url("../../images/wave.png");
+    //background-image: url("../../images/wave.png");
     height: 40px;
     background-size: contain;
     &:before {
@@ -2342,7 +2342,7 @@ body {
       position: absolute;
       bottom: 0;
       animation: move-img-reverse 10s linear infinite;
-      background-image: url("../../images/wave.png");
+      //background-image: url("../../images/wave.png");
       height: 40px;
       background-size: contain;
       opacity: 0.4;
@@ -2353,7 +2353,7 @@ body {
       width: 100%;
       bottom: 0;
       animation: move-img 20s linear infinite;
-      background-image: url("../../images/wave.png");
+      //background-image: url("../../images/wave.png");
       height: 45px;
       background-size: contain;
       opacity: 0.4;
@@ -2371,7 +2371,7 @@ body {
     width: 326px;
     -webkit-animation: move-img 10s linear infinite;
     animation: move-img 10s linear infinite;
-    background-image: url('../../images/wave-orange.png');
+    //background-image: url('../../images/wave-orange.png');
     height: 34px;
     background-size: contain;
     left: 50%;
@@ -2385,7 +2385,7 @@ body {
       width: 326px;
       -webkit-animation: move-img-reverse 10s linear infinite;
       animation: move-img-reverse 10s linear infinite;
-      background-image: url('../../images/wave-orange.png');
+      //background-image: url('../../images/wave-orange.png');
       height: 34px;
       opacity: 0.4;
       background-size: contain;
@@ -2398,7 +2398,7 @@ body {
       width: 326px;
       -webkit-animation: move-img 40s linear infinite;
       animation: move-img 40s linear infinite;
-      background-image: url('../../images/wave-orange.png');
+      //background-image: url('../../images/wave-orange.png');
       height: 34px;
       background-size: contain;
     }
@@ -3053,7 +3053,7 @@ footer {
 *************************/
 .videos {
   .video {
-    background-image: url("../../images/video-pic.jpg");
+    //background-image: url("../../images/video-pic.jpg");
     z-index: 1;
     padding: 125px 0;
     border-radius: 10px;
@@ -3138,7 +3138,7 @@ footer {
   }
   &.saas1 {
     .video {
-      background-image: url('../../images/video-pic.jpg');
+      // //background-image: url('../../images/video-pic.jpg');
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -6573,7 +6573,7 @@ tap to top css end
       }
     }
     .video-box {
-      background-image: url('../../images/video-pic.jpg');
+      ////background-image: url('../../images/video-pic.jpg');
       background-size: cover;
       background-repeat: no-repeat;
       height: 100%;
@@ -6974,7 +6974,7 @@ saas1 css end
   &.feature {
     position: relative;
     overflow: hidden;
-    background-image: url("../../images/background.png");
+    ////background-image: url("../../images/background.png");
     background-size: contain;
     background-position: right;
     .center-content {
@@ -8190,7 +8190,7 @@ breadcrumb-section css start
 .breadcrumb-section{
 
   &:not(.breadcrumb-left),&:not(.breadcrumb-right),&:not(.breadcrumb-slider){
-    background: url("../../images/inner-page/breadcrumb.jpg");
+    ////background: url("../../images/inner-page/breadcrumb.jpg");
     background-position: center;
     background-size: cover;
     background-blend-mode: overlay;
@@ -8209,7 +8209,7 @@ breadcrumb-section css start
     background: linear-gradient(200deg, $light, $dark);
   }
   &.bg1 {
-    background: url("../../images/inner-page/breadcrumb-bg.jpg");
+    // //background: url("../../images/inner-page/breadcrumb-bg.jpg");
     background-position: center;
     background-size: cover;
     background-blend-mode: overlay;
@@ -8343,7 +8343,7 @@ breadcrumb-section css start
     }
     .img-slider {
       .bg1 {
-        background: url("../../images/inner-page/breadcrumb-bg.jpg");
+        // //background: url("../../images/inner-page/breadcrumb-bg.jpg");
         height: 60vh;
         background-size: cover;
         background-position: center;
@@ -8352,7 +8352,7 @@ breadcrumb-section css start
         background-color: #00000094;
       }
       .bg2 {
-        background: url("../../images/inner-page/blogs/1.jpg");
+        // //background: url("../../images/inner-page/blogs/1.jpg");
         height: 60vh;
         background-size: cover;
         background-position: center;
@@ -8361,7 +8361,7 @@ breadcrumb-section css start
         background-color: #00000094;
       }
       .bg3 {
-        background: url("../../images/inner-page/breadcrumb-bg.jpg");
+        // //background: url("../../images/inner-page/breadcrumb-bg.jpg");
         height: 60vh;
         background-size: cover;
         background-position: center;
@@ -8370,7 +8370,7 @@ breadcrumb-section css start
         background-color: #00000094;
       }
       .bg4 {
-        background: url("../../images/inner-page/blogs/1.jpg");
+        // //background: url("../../images/inner-page/blogs/1.jpg");
         height: 60vh;
         background-size: cover;
         background-position: center;
@@ -10172,7 +10172,7 @@ error css end
       -ms-appearance: none;
       -o-appearance: none;
       -moz-appearance: none;
-      background: url('../../images/inner-page/dropdown.png') no-repeat 95%;
+      // background: url('../../images/inner-page/dropdown.png') no-repeat 95%;
     }
     input {
       &[type="text"], &[type="email"], &[type="password"], &[type="tel"], &[type="number"], &[type="url"] {
@@ -10962,7 +10962,7 @@ error css end
           -webkit-appearance: none;
           -moz-appearance: none;
           cursor: pointer;
-          background: url('../../images/inner-page/dropdown.png') no-repeat 95%;
+          // background: url('../../images/inner-page/dropdown.png') no-repeat 95%;
           &:focus {
             outline: unset;
           }
@@ -10999,7 +10999,7 @@ error css end
         position: relative;
         cursor: pointer;
         width: 22%;
-        background: url('../../images/inner-page/dropdown.png') no-repeat 95%;
+        // background: url('../../images/inner-page/dropdown.png') no-repeat 95%;
         a {
           font-size: 16px;
           color: $primary;
@@ -12775,21 +12775,21 @@ error css end
 }
 .multiple-carousel, .center-slide {
   height: 100vh;
-  .img1 {
-    background: url("../../images/portfolio/multiple-carousel/5.jpg");
-  }
-  .img2 {
-    background: url("../../images/portfolio/multiple-carousel/4.jpg");
-  }
-  .img3 {
-    background: url("../../images/portfolio/multiple-carousel/3.jpg");
-  }
-  .img4 {
-    background: url("../../images/portfolio/multiple-carousel/2.jpg");
-  }
-  .img5 {
-    background: url("../../images/portfolio/multiple-carousel/1.jpg");
-  }
+  // .img1 {
+  //   //background: url("../../images/portfolio/multiple-carousel/5.jpg");
+  // }
+  // .img2 {
+  //   //background: url("../../images/portfolio/multiple-carousel/4.jpg");
+  // }
+  // .img3 {
+  //   //background: url("../../images/portfolio/multiple-carousel/3.jpg");
+  // }
+  // .img4 {
+  //   //background: url("../../images/portfolio/multiple-carousel/2.jpg");
+  // }
+  // .img5 {
+  //   //background: url("../../images/portfolio/multiple-carousel/1.jpg");
+  // }
   .imgs-carousel {
     background-repeat: no-repeat;
     background-size: cover;
@@ -12860,7 +12860,7 @@ error css end
   }
 }
 .maintenance-sec {
-  background: url("../../images/inner-page/maintain-soon/bg-maintenance.jpg");
+  // //background: url("../../images/inner-page/maintain-soon/bg-maintenance.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -15171,7 +15171,7 @@ $ease--out-quad: cubic-bezier(.25,.46,.450,.94);
 
   &--near {
     animation-duration: $s--near;
-    background-image: url('../../images/snow1.png');
+    //background-image: url('../../images/snow1.png');
     background-size: contain;
 
     & + .snow--alt {
@@ -15181,7 +15181,7 @@ $ease--out-quad: cubic-bezier(.25,.46,.450,.94);
 
   &--mid {
     animation-duration: $s--mid;
-    background-image: url('../../images/snow2.png');
+    //background-image: url('../../images/snow2.png');
     background-size: contain;
 
     & + .snow--alt {
@@ -15191,7 +15191,7 @@ $ease--out-quad: cubic-bezier(.25,.46,.450,.94);
 
   &--far {
     animation-duration: $s--far;
-    background-image: url('../../images/snow3.png');
+    //background-image: url('../../images/snow3.png');
     background-size: contain;
 
     & + .snow--alt {

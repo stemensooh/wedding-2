@@ -4,8 +4,12 @@
     <button class="btn btn-secondary" type="button" (click)="documento.click()">Elegir una imagen</button>
     <input class="form-control" formControlName="nombre" type="text" readonly="readonly" />
     <input #documento type="file" class="d-none" (change)="uploadFile($event)" accept="image/*" />
+    <!-- <button class="btn btn-secondary" (click)="limpiar()">
+      <i class="fa fa-trash"></i>
+    </button> -->
     <button class="btn btn-success" (click)="guardarFoto()">
       Cargar
     </button>
+    
   </div>
 </div>

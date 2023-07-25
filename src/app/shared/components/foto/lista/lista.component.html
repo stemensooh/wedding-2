@@ -1,15 +1,18 @@
-<table class="table table-hover table-borderes">
+<table class="table table-hover table-bordered">
     <thead>
         <tr>
-            <th>Eliminar</th>
+            <th>Acciones</th>
             <th>Nombre</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let imagen of imagenes">
-            <td>
-                <button type="button" class="btn btn-danger" (click)="eliminarImagen(imagen?.id??'')">
+            <td class="text-center">
+                <button type="button" class="btn btn-danger" (click)="eliminarImagen(imagen?._id??'')">
                     <i class="fa fa-trash"></i>
+                </button>
+                <button type="button" class="btn btn-info bt" (click)="verImagen(imagen?.archivo??'')">
+                    <i class="fa fa-eye"></i>
                 </button>
             </td>
             <td>

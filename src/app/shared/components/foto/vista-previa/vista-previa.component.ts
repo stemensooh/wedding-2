@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-vista-previa',
@@ -10,5 +10,5 @@ import { Component } from '@angular/core';
   ]
 })
 export class VistaPreviaComponent {
-
+  @Input() medidas: string = '';
 }

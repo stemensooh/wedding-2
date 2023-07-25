@@ -40,23 +40,23 @@
         <ng-container [formGroup]="formBloc">
             <div class="row">
                 <div class="col-md-6">
-                    <label>Titulo</label>
+                    <label>Titulo <span class="text-danger">*</span></label>
                     <input class="form-control" formControlName="titulo" />
                 </div>
                 <div class="col-md-6">
-                    <label>Fecha</label>
+                    <label>Fecha <span class="text-danger">*</span></label>
                     <input class="form-control" formControlName="fecha" type="date" />
                 </div>
-                <div class="col-md-6">
-                    <label>Lugar</label>
+                <div class="col-md-12">
+                    <label>Lugar <span class="text-danger">*</span></label>
                     <input class="form-control" formControlName="lugar" />
                 </div>
-                <div class="col-md-6">
-                    <label>Foto</label>
+                <div class="col-md-12">
+                    <label>Foto (475 x 370) <span class="text-danger">*</span></label>
                     <input class="form-control" formControlName="foto" type="file" accept="image/*" id="foto-blog" (change)="convertFileToBase64($event)"/>
                 </div>
                 <div class="col-md-12">
-                    <label>Descripción</label>
+                    <label>Descripción <span class="text-danger">*</span></label>
                     <textarea rows="3" class="form-control" formControlName="descripcion" ></textarea>
                 </div>
                 <div class="col-md-12 mt-3">

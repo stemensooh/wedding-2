@@ -2,3 +2,14 @@
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+body {
+    font-size: 12px;
+}
+
+.form-control, .btn {
+    font-size: 12px !important;
+}
+
+label, th, td {
+    font-size: 12px !important;
+}

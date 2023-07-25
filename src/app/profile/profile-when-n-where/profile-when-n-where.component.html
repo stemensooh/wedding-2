@@ -10,6 +10,7 @@
                     <tr>
                         <th>Eliminar</th>
                         <th>Titulo</th>
+                        <th>Hora</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -20,6 +21,7 @@
                             </button>
                         </td>
                         <td>{{ item.titulo }}</td>
+                        <td>{{ item.hora }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -36,15 +38,15 @@
         <ng-container [formGroup]="formBloc">
             <div class="row">
                 <div class="col-md-6">
-                    <label>Titulo</label>
+                    <label>Titulo <span class="text-danger">*</span></label>
                     <input class="form-control" formControlName="titulo" />
                 </div>
                 <div class="col-md-6">
-                    <label>Hora</label>
+                    <label>Hora <span class="text-danger">*</span></label>
                     <input class="form-control" formControlName="hora" type="time" />
                 </div>
                 <div class="col-md-12">
-                    <label>Descripción</label>
+                    <label>Descripción <span class="text-danger">*</span></label>
                     <textarea rows="3" class="form-control" formControlName="descripcion" ></textarea>
                 </div>
                 <div class="col-md-12 mt-3">

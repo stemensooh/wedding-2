@@ -51,7 +51,7 @@ export class Blog {
 export class Countdown {
   _id?:string
   weddingId?:string
-  fecha?:Date
+  fecha?:string
   hora?:string
   direccion?:string
   url?:string
@@ -60,7 +60,7 @@ export class Countdown {
 }
 
 export class Gallery {
-  _id?:string
+  _id?:string;
   weddingId?:string
   archivo?:string
   nombre?:string

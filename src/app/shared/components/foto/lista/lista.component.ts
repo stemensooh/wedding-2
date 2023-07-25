@@ -15,17 +15,20 @@ import { ImagenDto } from 'src/app/core/dtos/imagen.dto';
 export class ListaComponent implements OnChanges {
   @Input() imagenes: ImagenDto[] = [];
   @Output() imagenesOut = new EventEmitter<ImagenDto[]>();
+  @Output() vistaPrevia = new EventEmitter<string>();
 
   eliminarImagen(id: string){
-    this.imagenes = this.imagenes.filter(x => x.id !== id);
+    this.imagenes = this.imagenes.filter(x => x._id !== id);
     this.imagenesOut.emit(this.imagenes);
-    console.log(this.imagenes);
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes);
     if (changes['imagenes'].currentValue) {
       this.imagenes = changes['imagenes'].currentValue;
     }
+  }
+
+  verImagen(imagen: string){
+    this.vistaPrevia.emit(imagen);
   }
 }

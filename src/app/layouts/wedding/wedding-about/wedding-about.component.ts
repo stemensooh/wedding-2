@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { IMAGE_745_x_849 } from 'src/app/core/constants/images';
 import { About, WeddingResponseDto } from 'src/app/core/dtos/wedding-response.dto';
 
 @Component({
@@ -9,14 +10,14 @@ import { About, WeddingResponseDto } from 'src/app/core/dtos/wedding-response.dt
 export class WeddingAboutComponent implements OnInit , OnChanges {
   @Input() wedding!: WeddingResponseDto;
   about: About = {
-    foto: 'assets/images/wedding-img/about-us.png'
+    foto: IMAGE_745_x_849
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['wedding'].currentValue) {
       const wedding = changes['wedding'].currentValue as WeddingResponseDto;
       this.about = wedding.abouts ? wedding.abouts[0] : {
-        foto: 'assets/images/wedding-img/about-us.png'
+        foto: IMAGE_745_x_849
       };
     }
   }

@@ -10,6 +10,7 @@ import { ImagenDto } from '../core/dtos/imagen.dto';
 import { TestimonioDto } from '../core/dtos/testimonio.dtp';
 import { WhenDto } from '../core/dtos/when.dto';
 import { BlogDto } from '../core/dtos/blog.dto';
+import { WeddingResponseDto } from '../core/dtos/wedding-response.dto';
 
 @Component({
   selector: 'app-profile',
@@ -19,13 +20,26 @@ import { BlogDto } from '../core/dtos/blog.dto';
 export class ProfileComponent implements OnInit, OnDestroy {
   form: FormGroup;
   sub = new Subscription();
+  wedding!: WeddingResponseDto;
 
   constructor(
     private control: ProfileControlServiceService,
     private route: ActivatedRoute,
-    private profileService: ProfileService
+    private profileService: ProfileService,
+    private _router: ActivatedRoute,
+    private weddingService: WeddingService,
   ) {
     this.form = control.toForm();
+
+
+    this._router.params.subscribe((params) => {
+      this.weddingService
+        .getTitulo(params['titulo'])
+        .subscribe((data: WeddingResponseDto) => {
+          this.wedding = data;
+          this.form = control.toForm( this.wedding);
+        });
+    });
   }
 
   ngOnInit(): void {
@@ -41,6 +55,13 @@ export class ProfileComponent implements OnInit, OnDestroy {
     console.log(this.form.value);
 
     localStorage.setItem('wedding', JSON.stringify(this.form.value));
+
+    // if (!this.form.valid) {
+    //   this.form.markAllAsTouched();
+    //   console.log('no es valido')
+    //   return;
+    // }
+
 
     const nav = this.nav.value;
     const header = this.header.value;
@@ -68,7 +89,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
       banner: banner,
       gallery: [
         ...gallery.map(item => {
-          item.id = undefined;
+          item._id = undefined;
           return item
         })
       ],

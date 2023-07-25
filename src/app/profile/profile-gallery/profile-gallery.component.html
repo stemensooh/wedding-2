@@ -7,7 +7,7 @@
         <ng-container [formGroup]="form">
           <div class="row">
             <div class="col-12">
-              <app-foto [multiple]="true" [mostrarLista]="true" (imagenesOut)="cargarImagen($event)" [imagenes]="imagenes"></app-foto>
+              <app-foto [medidas]="IMAGE" [multiple]="true" [mostrarLista]="true" (imagenesOut)="cargarImagen($event)" [imagenes]="imagenes"></app-foto>
             </div>
           </div>
         </ng-container>

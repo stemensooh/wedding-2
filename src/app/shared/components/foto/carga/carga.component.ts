@@ -51,7 +51,7 @@ export class CargaComponent implements OnInit {
           doc.tipo = data[0].replace('data:', '').split(';')[0];
           doc.archivo = result;
           doc.nombre = file.name;
-          doc.id = crypto.randomUUID();
+          doc._id = crypto.randomUUID();
 
           this.form.patchValue(doc);
 
@@ -82,5 +82,9 @@ export class CargaComponent implements OnInit {
       tipo: [null],
       id: [null],
     });
+  }
+
+  limpiar(){
+    
   }
 }
