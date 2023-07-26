@@ -1,0 +1,16 @@
+<div class="container pt-4">
+    <div class="card">
+      <h5 class="card-header">
+        Nav
+      </h5>
+      <div class="card-body">
+        <ng-container [formGroup]="form">
+          <div class="row">
+            <div class="col-12">
+              <app-foto [medidas]="IMAGE" (imagenesOut)="cargarImagen($event)"></app-foto>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>

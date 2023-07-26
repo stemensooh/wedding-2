@@ -51,7 +51,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   guardarFormulario() {
     console.log(this.form.value);
-    localStorage.setItem('wedding', JSON.stringify(this.form.value));
+    // localStorage.setItem('wedding', JSON.stringify(this.form.value));
 
     // if (!this.form.valid) {
     //   this.form.markAllAsTouched();

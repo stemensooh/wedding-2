@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { IMAGE_714_x_720 } from 'src/app/core/constants/images';
+import { IMAGE_1921_x_1100, IMAGE_714_x_720 } from 'src/app/core/constants/images';
 import { Header, WeddingResponseDto } from 'src/app/core/dtos/wedding-response.dto';
 
 @Component({
@@ -8,10 +8,10 @@ import { Header, WeddingResponseDto } from 'src/app/core/dtos/wedding-response.d
   styleUrls: ['./wedding-header.component.scss']
 })
 export class WeddingHeaderComponent implements OnInit, OnChanges {
+  IMAGE = IMAGE_1921_x_1100;
   @Input() wedding!: WeddingResponseDto;
   header: Header = {
     foto: IMAGE_714_x_720,
-
   };
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -19,10 +19,12 @@ export class WeddingHeaderComponent implements OnInit, OnChanges {
       const wedding = changes['wedding'].currentValue as WeddingResponseDto;
       this.header = wedding.headers ? wedding.headers[0] : {
         foto: IMAGE_714_x_720,
-
       };
+
+      this.IMAGE = wedding.navcustoms? (wedding.navcustoms[0].foto ? wedding.navcustoms[0].foto : IMAGE_1921_x_1100 ) : IMAGE_1921_x_1100;
     }
   }
+
   constructor() { }
 
   ngOnInit() {
