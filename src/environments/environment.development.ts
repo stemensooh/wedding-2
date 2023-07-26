@@ -4,4 +4,7 @@ export const environment = {
     clientId: '704825534126-sp5ieupi5jk1l9c7sqt3rbe55uu3ms45.apps.googleusercontent.com',
     secretClient: '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',
     MAX_FILE_SIZE_BYTE: 5242880,
+    captcha:{
+        siteKey: '6LdcblUnAAAAAOPzpjs6l4xlcvMVDYhtvw5a9nMj'
+    }
 };

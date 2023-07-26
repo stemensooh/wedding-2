@@ -10,8 +10,10 @@ import {
 } from '@abacritt/angularx-social-login';
 import { environment } from 'src/environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxCaptchaModule } from 'ngx-captcha';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 @NgModule({
   declarations: [AuthComponent, LoginComponent],
@@ -21,7 +23,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     // BrowserModule,
     ReactiveFormsModule,
     // BrowserAnimationsModule,
-    // SocialLoginModule
+    // SocialLoginModule,
+    FormsModule,
+    NgxCaptchaModule,
+    RecaptchaModule,
   ],
   providers: [
     {

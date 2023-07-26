@@ -1,0 +1,59 @@
+<div class="container" style="max-width: 550px">
+  <h2 class="text-center mb-5">Angular Login with Google</h2>
+  <div *ngIf="isLoggedin === false">
+    <div>
+      <button type="button" (click)="loginWithGoogle()" class="btn btn-danger">Login with Google</button>
+    </div>
+  </div>
+  <div *ngIf="isLoggedin === true">
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" class="form-control" [value]="socialUser.firstName" id="firstname" readonly>
+    </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" class="form-control" [value]="socialUser.lastName" id="lastname" readonly>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" class="form-control" [value]="socialUser.email" id="email" readonly>
+    </div>
+    <button type="button" (click)="logOut()" class="btn btn-primary">Log Out</button>
+  </div>
+</div>
+<!-- <div>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="navbar-nav ml-auto" *ngIf="!user">
+      <li class="nav-item">
+        <a (click)="loginWithGoogle()" class="nav-link">Sign in with google</a>
+      </li>
+    </div>
+    <div class="navbar-nav ml-auto" *ngIf="user">
+    <span class="navbar-text">
+     {{ user.email }}
+    </span>
+      <li class="nav-item">
+        <a class="nav-link" (click)="logOut()">Logout</a>
+      </li>
+    </div>
+  </nav>
+</div> -->
+<!-- <asl-google-signin-button type='icon' size='medium'></asl-google-signin-button> -->
+
+<!-- <div id="g_id_onload"
+     data-client_id="704825534126-sp5ieupi5jk1l9c7sqt3rbe55uu3ms45.apps.googleusercontent.com"
+     data-context="signin"
+     data-ux_mode="popup"
+     data-login_uri="localhost:4200"
+     data-nonce=""
+     data-itp_support="true">
+</div>
+
+<div class="g_id_signin"
+     data-type="icon"
+     data-shape="square"
+     data-theme="outline"
+     data-text="signin_with"
+     data-size="large"
+     data-locale="es-419">
+</div> -->

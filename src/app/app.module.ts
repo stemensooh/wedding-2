@@ -12,6 +12,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthModule } from './auth/auth.module';
 import { ProfileRoutingModule } from './profile/profile-routing.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module } from "ng-recaptcha";
+import { environment } from 'src/environments/environment';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,8 +35,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     NgbModule,
     MatSnackBarModule,
     ProfileRoutingModule,
+    RecaptchaV3Module
   ],
-  providers: [],
+  providers: [{ provide: RECAPTCHA_V3_SITE_KEY, useValue: environment.captcha.siteKey }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

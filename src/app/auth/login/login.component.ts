@@ -1,12 +1,8 @@
-import {
-  GoogleLoginProvider,
-  SocialAuthService,
-  SocialUser,
-} from '@abacritt/angularx-social-login';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { CustomizerService } from 'src/app/shared/service/customizer.service';
+import { ReCaptchaV3Service } from 'ngx-captcha';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -14,71 +10,70 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  loginForm!: FormGroup;
-  socialUser!: SocialUser;
-  isLoggedin?: boolean;
-  user: SocialUser | null;
-  private accessToken = '';
-  loggedIn!: boolean;
+  siteKey: string = environment.captcha.siteKey; // Reemplaza esto con tu clave del sitio
+  formLogin!: FormGroup;
 
   constructor(
-    private router: Router,
-    private formBuilder: FormBuilder,
-    private socialAuthService: SocialAuthService,
-    private httpClient: HttpClient
+    public customize: CustomizerService,
+    private reCaptchaV3Service: ReCaptchaV3Service,
+    private fb: FormBuilder
   ) {
-    this.user = null;
-    // this.socialAuthService.authState.subscribe((user: SocialUser) => {
-    //   console.log(user);
-    //   this.user = user;
-    // });
+    this.customizeLayoutVersion('light');
   }
-  ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-    });
-    this.socialAuthService.authState.subscribe((user) => {
-      this.user = user;
-      this.loggedIn = (user != null);
+  ngOnInit(): void {
+    this.formLogin = this.fb.group({
+      recaptcha: ['', Validators.required],
     });
   }
 
-  googleLoginOptions = {
-    scope: 'profile email'
-  };
-
-  loginWithGoogle(): void {
-    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID, this.googleLoginOptions ).then((data) => {
-      console.log(data);
-    }).catch(data => {
-      this.socialAuthService.signOut();
-      this.router.navigate(['auth']);
-    });
+  customizeLayoutVersion(val: any) {
+    this.customize.setLayoutVersion(val);
   }
 
-  logOut(): void {
-    this.socialAuthService.signOut();
+  resolved(captchaResponse: string) {
+    console.log(`Resolved captcha with response: ${captchaResponse}`);
   }
 
-  refreshToken(): void {
-    this.socialAuthService.refreshAuthToken(GoogleLoginProvider.PROVIDER_ID);
+  onSubmit() {
+    // this.reCaptchaV3Service.execute(
+    //   this.siteKey,
+    //   'homepage',
+    //   (token) => {
+    //     console.log('This is your token: ', token);
+    //   },
+    //   {
+    //     useGlobalDomain: false,
+    //   }
+    // );
+    // this.reCaptchaV3Service.execute(
+    //   this.siteKey,
+    //   'homepage',
+    //   (token) => {
+    //     console.log('This is your token: ', token);
+    //   },
+    //   {
+    //     useGlobalDomain: false,
+    //   }
+    // );
   }
 
-  getAccessToken(): void {
-    this.socialAuthService.getAccessToken(GoogleLoginProvider.PROVIDER_ID).then(accessToken => this.accessToken = accessToken);
+  handleLoad() {
+    console.log('handleLoad');
   }
 
-  getGoogleCalendarData(): void {
-    if (!this.accessToken) return;
+  handleSuccess($event: any) {
+    console.log('handleSuccess', $event);
+  }
 
-    this.httpClient
-      .get('https://www.googleapis.com/calendar/v3/calendars/primary/events', {
-        headers: { Authorization: `Bearer ${this.accessToken}` },
-      })
-      .subscribe((events) => {
-        alert('Look at your console');
-        console.log('events', events);
-      });
+  handleReset() {
+    console.log('handleReset');
+  }
+
+  handleExpire() {
+    console.log('handleExpire');
+  }
+
+  handleReady() {
+    console.log('handleReady');
   }
 }
