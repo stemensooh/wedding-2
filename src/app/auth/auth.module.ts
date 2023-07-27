@@ -16,6 +16,9 @@ import { NgxCaptchaModule } from 'ngx-captcha';
 import { RECAPTCHA_V3_SITE_KEY, RecaptchaModule, RecaptchaV3Module } from 'ng-recaptcha';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { AuthControlService } from './auth-control.service';
+import { AuthService } from '../core/services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AuthComponent, LoginComponent, SignInComponent, SignUpComponent],
@@ -32,6 +35,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     RecaptchaV3Module
   ],
   providers: [
+    AuthControlService,
+    AuthService,
+    HttpClientModule,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
