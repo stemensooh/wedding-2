@@ -13,10 +13,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxCaptchaModule } from 'ngx-captcha';
-import { RecaptchaModule } from 'ng-recaptcha';
+import { RECAPTCHA_V3_SITE_KEY, RecaptchaModule, RecaptchaV3Module } from 'ng-recaptcha';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
-  declarations: [AuthComponent, LoginComponent],
+  declarations: [AuthComponent, LoginComponent, SignInComponent, SignUpComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
@@ -25,8 +27,9 @@ import { RecaptchaModule } from 'ng-recaptcha';
     // BrowserAnimationsModule,
     // SocialLoginModule,
     FormsModule,
-    NgxCaptchaModule,
+    // NgxCaptchaModule,
     RecaptchaModule,
+    RecaptchaV3Module
   ],
   providers: [
     {
@@ -49,6 +52,10 @@ import { RecaptchaModule } from 'ng-recaptcha';
           console.error(err);
         }
       } as SocialAuthServiceConfig,
+    },
+    {
+      provide: RECAPTCHA_V3_SITE_KEY,
+      useValue: environment.captcha.siteKey,
     }
   ],
 })

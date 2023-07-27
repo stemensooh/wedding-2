@@ -6,6 +6,7 @@ export const environment = {
     secretClient: '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',
     MAX_FILE_SIZE_BYTE: 5242880,
     captcha:{
-        siteKey: '6LfU71EnAAAAAGWD7PxtdaLLhvM_h6--LETQOMfd'
+        siteKey: '6Lf_21knAAAAANVxG3GrNl2GkXFbI_FHp_q8jo1h',
+        secretKey: '6Lf_21knAAAAAH4Ob5aZRbQYs9D-8HIJvFM1Kd_h'
     }
 };
