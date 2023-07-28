@@ -5,11 +5,14 @@ import {
   HttpErrorHandlerService,
 } from './http-error-handler.service';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { HttpResult, httpOptions } from '../models/http';
 import { catchError } from 'rxjs/operators';
 import { SignUpDto } from '../dtos/auth/sign-up.dto';
 import { SignInDto } from '../dtos/auth/sign-in.dto';
+import { AuthResponse } from '../interfaces/auth-response.interface';
+import jwt_decode from 'jwt-decode';
+import { UsuarioToken } from '../interfaces/usuario-token.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -38,4 +41,25 @@ export class AuthService {
       .post<HttpResult>(url, model, httpOptions)
       .pipe(catchError(this.handleError<HttpResponse<HttpResult>>('signUp')));
   }
+
+  signOut(){
+    localStorage.removeItem('access_token');
+  }
+
+  getAuthToken() {
+    const token = localStorage.getItem('access_token')  ?? '';
+    return jwt_decode(token) as UsuarioToken;
+  }
+
+  setAuthToken(authResponse: AuthResponse){
+    const valid = jwt_decode(authResponse.access_token);
+      if (valid) {
+        localStorage.setItem('access_token', authResponse.access_token);
+        return true;
+      }
+
+    return false;
+  }
+
+  
 }

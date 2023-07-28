@@ -36,10 +36,11 @@ export class ProfileControlServiceService {
             : undefined,
         ],
         tituloPagina: [
-          {
-            value: wedding?.tituloPagina,
-            disabled: wedding,
-          },
+          wedding?.tituloPagina,
+          // {
+          //   value: wedding?.tituloPagina,
+          //   disabled: wedding,
+          // },
           Validators.required,
         ],
         foto: [

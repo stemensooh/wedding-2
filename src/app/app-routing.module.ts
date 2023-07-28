@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './auth/auth.component';
+import { authGuard } from './core/guards/auth.guard';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 export const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./layouts/layouts.module').then(m => m.LayoutsModule),
     data: {
-      breadcrumb: "Wedding"
+      breadcrumb: "home"
     }
   },
   {
@@ -23,14 +25,19 @@ export const routes: Routes = [
     component: AuthComponent,
     loadChildren: () => import('./profile/profile.module').then((m) => m.ProfileModule),
     data: {
-      breadcrumb: "auth"
-    }
+      breadcrumb: "profile"
+    },
+    canActivate: [authGuard]
   },
   {
     path: '',
     redirectTo: 'auth',
     pathMatch: 'full',
   },
+  {
+    path: '**',
+    component: NotFoundComponent
+  }
 ];
 
 @NgModule({

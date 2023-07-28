@@ -11,6 +11,8 @@ import { TestimonioDto } from '../core/dtos/testimonio.dtp';
 import { WhenDto } from '../core/dtos/when.dto';
 import { BlogDto } from '../core/dtos/blog.dto';
 import { WeddingResponseDto } from '../core/dtos/wedding-response.dto';
+import { AuthService } from '../core/services/auth.service';
+import { UsuarioToken } from '../core/interfaces/usuario-token.interface';
 
 @Component({
   selector: 'app-profile',
@@ -21,24 +23,25 @@ export class ProfileComponent implements OnInit, OnDestroy {
   form: FormGroup;
   sub = new Subscription();
   wedding!: WeddingResponseDto;
+  usuarioToken!: UsuarioToken;
 
   constructor(
+    private authService: AuthService,
     private control: ProfileControlServiceService,
     private profileService: ProfileService,
     private _route: ActivatedRoute,
     private weddingService: WeddingService,
     private router: Router
   ) {
-    this.form = control.toForm();
+    this.form = this.control.toForm();
+    this.usuarioToken = this.authService.getAuthToken();
 
-    this._route.params.subscribe((params) => {
-      this.weddingService
-        .getTitulo(params['titulo'])
-        .subscribe((data: WeddingResponseDto) => {
-          this.wedding = data;
-          this.form = control.toForm(this.wedding);
-        });
-    });
+    this.weddingService
+      .getId(this.usuarioToken.wedding.id)
+      .subscribe((data: WeddingResponseDto) => {
+        this.wedding = data;
+        this.form = control.toForm(this.wedding);
+      });
   }
 
   ngOnInit(): void {
@@ -115,23 +118,23 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
     if (request._id) {
       this.profileService.update(request).subscribe((response) => {
+        console.log(response);
         if (response.status === 200) {
-          this.router.navigate([
-            '/profile',
-            `${(response.body as WeddingResponseDto).tituloPagina}`,
-          ]);
+          this.router.navigate(['/profile']);
         }
       });
     } else {
       this.profileService.create(request).subscribe((response) => {
         if (response.status === 200) {
-          this.router.navigate([
-            '/profile',
-            `${(response.body as WeddingResponseDto).tituloPagina}`,
-          ]);
+          this.router.navigate(['/profile']);
         }
       });
     }
+  }
+
+  cerrarSesion(){
+    this.authService.signOut();
+    this.router.navigate(['/auth/sign-in'])
   }
 
   get nav() {

@@ -25,4 +25,10 @@ export class ProfileHeaderComponent implements OnChanges {
       this.IMAGE = changes['form'].currentValue.value.foto;
     }
   }
+
+  onKeyupEvent(){
+    this.form.patchValue({
+      tituloPagina: (this.form.value.tituloPagina as string).replaceAll(' ', '-')
+    })
+  }
 }

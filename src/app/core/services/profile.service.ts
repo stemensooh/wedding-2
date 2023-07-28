@@ -33,7 +33,6 @@ export class ProfileService {
   }
 
   create(create: WeddingRequestDto): Observable<HttpResponse<HttpResult>>  {
-    // console.log('create', create);
     const url = `${this.urlApi}/`;
     return this.httpCliente
       .post<HttpResult>(url, create, httpOptions)
@@ -41,7 +40,6 @@ export class ProfileService {
   }
 
   update(update: WeddingRequestDto): Observable<HttpResponse<HttpResult>> {
-    // console.log('update', update);
     const url = `${this.urlApi}/`;
     return this.httpCliente
       .put<HttpResult>(url, update, httpOptions)

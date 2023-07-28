@@ -17,7 +17,7 @@
                   Titulo página
                   <span class="text-danger">*</span>
                 </label>
-                <input class="form-control" formControlName="tituloPagina" placeholder="Titulo página" />
+                <input (keyup)="onKeyupEvent()" class="form-control" formControlName="tituloPagina" placeholder="Titulo página" />
               </div>
               <div class="col-md-12">
                 <label>

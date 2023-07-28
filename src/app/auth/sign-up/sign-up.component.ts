@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AuthControlService } from '../auth-control.service';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { HttpStatusCode } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -11,22 +13,32 @@ import { AuthService } from 'src/app/core/services/auth.service';
 export class SignUpComponent {
   formAuth!: FormGroup;
 
-  constructor(private control: AuthControlService, private authService: AuthService) {
+  constructor(
+    private router: Router,
+    private control: AuthControlService,
+    private authService: AuthService
+  ) {
     this.formAuth = this.control.toFormSignUp();
   }
 
-  onSumit(){
+  onSumit() {
     console.log('onSumit', this.formAuth.value);
-    if (!this.valid()){
+    if (!this.valid()) {
       console.log('form no es valido');
     }
 
-    this.authService.signUp({...this.formAuth.value }).subscribe((response) => {
-      console.log(response)
-    })
+    this.authService
+      .signUp({ ...this.formAuth.value })
+      .subscribe((response) => {
+        console.log(response);
+        if (response.status === HttpStatusCode.Ok) {
+          this.authService.setAuthToken(response.body as any);
+          this.router.navigate(['/profile']);
+        }
+      });
   }
 
-  valid(){
-    return this.formAuth.valid
+  valid() {
+    return this.formAuth.valid;
   }
 }
