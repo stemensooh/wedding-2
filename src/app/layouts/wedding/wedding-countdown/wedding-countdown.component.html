@@ -8,10 +8,10 @@
           <div class="main-title">
             <h2 class="gradient-text">Cuenta regresiva</h2>
           </div>
-          <div class="sub-title">
+          <!-- <div class="sub-title">
             <p>A beautiful app for consectetur adipisicing elit, sed do eiusmod tempor incididunt ut mollit
               anim id est laborum. Sedut perspiciatis unde omnis.</p>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -78,10 +78,12 @@
           </div>
         </div>
         <div class="schedule text-center">
-          <h3 class="m-b-15 zexson-text">
-            <i class="fa fa-map-marker m-r-10" aria-hidden="true"></i> 
-            {{countdown?.direccion}}
-          </h3>
+          <a target="_blank" [href]="countdown?.url">
+            <h3 class="m-b-15 zexson-text">
+              <i class="fa fa-map-marker m-r-10" aria-hidden="true"></i>
+              {{countdown?.direccion}}
+            </h3>
+          </a>
           <h4 class="schedule-date"><i class="fa fa-calendar m-r-10" aria-hidden="true"></i>
             {{ fecha | date }}
           </h4>
