@@ -7,16 +7,17 @@
         <ng-container [formGroup]="form">
   
           <div class="row">
-            <div class="col-6">
+            <div class="col-md-6">
               <app-foto [medidas]="IMAGE" (imagenesOut)="cargarImagen($event)"></app-foto>
             </div>
-            <div class="col-6">
-              <label>
-                Mensaje
-                <span class="text-danger">*</span>
-              </label>
-              <!-- <input formControlName="mensaje" placeholder="Código del item" /> -->
-              <textarea rows="7" class="form-control" formControlName="mensaje" placeholder="Texto libre"></textarea>
+            <div class="col-md-6">
+              <mdb-form-control class="mb-4">
+                <textarea mdbValidate mdbInput rows="7" class="form-control" formControlName="mensaje" placeholder="Texto libre"></textarea>
+                <label mdbLabel class="form-label" for="mensaje">
+                  Mensaje
+                  <span class="text-danger">*</span>
+                </label>
+              </mdb-form-control>
             </div>
           </div>
         </ng-container>

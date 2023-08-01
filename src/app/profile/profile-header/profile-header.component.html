@@ -5,28 +5,24 @@
     </h5>
     <div class="card-body">
       <ng-container [formGroup]="form">
-
         <div class="row">
-          <div class="col-6">
+          <div class="col-md-6">
             <app-foto [medidas]="IMAGE" (imagenesOut)="cargarImagen($event)"></app-foto>
           </div>
           <div class="col-md-6">
-            <div class="row">
-              <div class="col-md-12">
-                <label>
-                  Titulo página
-                  <span class="text-danger">*</span>
-                </label>
-                <input (keyup)="onKeyupEvent()" class="form-control" formControlName="tituloPagina" placeholder="Titulo página" />
-              </div>
-              <div class="col-md-12">
-                <label>
-                  Mensaje
-                  <span class="text-danger">*</span>
-                </label>
-                <textarea rows="7" class="form-control" formControlName="mensaje" placeholder="Texto libre"></textarea>
-              </div>
-            </div>
+            <mdb-form-control class="mb-4">
+              <input mdbValidate mdbInput formControlName="tituloPagina" type="text" id="tituloPagina" (keyup)="onKeyupEvent()"
+                class="form-control" />
+              <label mdbLabel class="form-label" for="tituloPagina">Nombres</label>
+            </mdb-form-control>
+            <mdb-form-control class="mb-4">
+              <textarea mdbValidate mdbInput rows="7" class="form-control" formControlName="mensaje" id="mensaje"
+                placeholder="Texto libre"></textarea>
+              <label mdbLabel class="form-label" for="mensaje">
+                Mensaje
+                <span class="text-danger">*</span>
+              </label>
+            </mdb-form-control>
           </div>
         </div>
       </ng-container>

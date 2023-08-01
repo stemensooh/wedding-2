@@ -8,29 +8,29 @@
 
                             <h3 class="mb-5">Registro</h3>
 
-                            <div class="form-outline mb-4">
-                                <input formControlName="name" type="text" id="name"
+                            <mdb-form-control class="mb-4">
+                                <input mdbValidate mdbInput formControlName="name" type="text" id="name"
                                     class="form-control form-control-lg" />
-                                <label class="form-label" for="name">Nombres</label>
-                            </div>
+                                <label mdbLabel class="form-label" for="name">Nombres</label>
+                            </mdb-form-control>
 
-                            <div class="form-outline mb-4">
-                                <input formControlName="lastName" type="text" id="lastName"
+                            <mdb-form-control class="mb-4">
+                                <input mdbValidate mdbInput formControlName="lastName" type="text" id="lastName"
                                     class="form-control form-control-lg" />
-                                <label class="form-label" for="lastName">Apellido</label>
-                            </div>
+                                <label mdbLabel class="form-label" for="lastName">Apellido</label>
+                            </mdb-form-control>
 
-                            <div class="form-outline mb-4">
-                                <input formControlName="email" type="email" id="email"
+                            <mdb-form-control class="mb-4">
+                                <input mdbValidate mdbInput formControlName="email" type="email" id="email"
                                     class="form-control form-control-lg" />
-                                <label class="form-label" for="email">Correo Electrónico</label>
-                            </div>
+                                <label mdbLabel class="form-label" for="email">Correo Electrónico</label>
+                            </mdb-form-control>
 
-                            <div class="form-outline mb-4">
-                                <input formControlName="password" type="password" id="password"
+                            <mdb-form-control class="mb-4">
+                                <input mdbValidate mdbInput formControlName="password" type="password" id="password"
                                     class="form-control form-control-lg" />
-                                <label class="form-label" for="password">Contraseña</label>
-                            </div>
+                                <label mdbLabel class="form-label" for="password">Contraseña</label>
+                            </mdb-form-control>
 
                             <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="onSumit()"
                                 [disabled]="!valid()">

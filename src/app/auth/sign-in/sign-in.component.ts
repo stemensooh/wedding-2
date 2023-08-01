@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { AuthControlService } from '../auth-control.service';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { AuthResponse } from 'src/app/core/interfaces/auth-response.interface';
@@ -23,15 +23,13 @@ export class SignInComponent {
   }
 
   onSumit() {
-    console.log('onSumit', this.formAuth.value);
     if (!this.valid()) {
-      console.log('form no es valido');
+      return;
     }
 
     this.authService
       .signIn({ ...this.formAuth.value })
       .subscribe((response) => {
-        console.log(response);
         if (response.status === HttpStatusCode.Ok) {
           this.authService.setAuthToken(response.body as any);
           this.router.navigate(['/profile']);

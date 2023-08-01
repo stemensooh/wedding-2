@@ -6,49 +6,61 @@
         <div class="card-body">
             <ng-container [formGroup]="form">
                 <div class="row">
-                    <div class="col-6">
-                        <label>
-                            Nombres del novia
-                            <span class="text-danger">*</span>
-                        </label>
-                        <input class="form-control" formControlName="nombreNovia" placeholder="Nombres de los novios" />
-                    </div>
-                    <div class="col-6">
-                        <label>
-                            Apellido del novia
-                            <span class="text-danger">*</span>
-                        </label>
-                        <input class="form-control" formControlName="apellidoNovia" placeholder="Nombres de los novios" />
-                    </div>
-                    <div class="col-6">
-                        <label>
-                            Nombres del novio
-                            <span class="text-danger">*</span>
-                        </label>
-                        <input class="form-control" formControlName="nombreNovio" placeholder="Nombres de los novios" />
-                    </div>
-                    <div class="col-6">
-                        <label>
-                            Apellido del novio
-                            <span class="text-danger">*</span>
-                        </label>
-                        <input class="form-control" formControlName="apellidoNovio" placeholder="Nombres de los novios" />
+                    <div class="col-md-6">
+                        <mdb-form-control class="mb-4">
+                            <input mdbValidate mdbInput class="form-control" formControlName="nombreNovia" placeholder="Nombres de los novios" />
+                            <label mdbLabel class="form-label" for="nombreNovia">
+                                Nombres del novia
+                                <span class="text-danger">*</span>
+                            </label>
+                        </mdb-form-control>
                     </div>
                     <div class="col-md-6">
-                        <label>
-                            Dirección 1
-                            <span class="text-danger">*</span>
-                        </label>
-                        <input class="form-control" formControlName="direccion1"
-                            placeholder="Dirección 1" />
+                        <mdb-form-control class="mb-4">
+                            <input mdbValidate mdbInput class="form-control" formControlName="apellidoNovia"
+                            placeholder="Nombres de los novios" />
+                            <label mdbLabel class="form-label" for="apellidoNovia">
+                                Apellido del novia
+                                <span class="text-danger">*</span>
+                            </label>
+                        </mdb-form-control>
                     </div>
                     <div class="col-md-6">
-                        <label>
-                            Dirección 2
-                            <span class="text-danger">*</span>
-                        </label>
-                        <input class="form-control" formControlName="direccion2"
-                            placeholder="Dirección 2" />
+                        <mdb-form-control class="mb-4">
+                            <input mdbValidate mdbInput class="form-control" formControlName="nombreNovio" placeholder="Nombres de los novios" />
+                            <label mdbLabel class="form-label" for="nombreNovio">
+                                Nombres del novio
+                                <span class="text-danger">*</span>
+                            </label>
+                        </mdb-form-control>
+                    </div>
+                    <div class="col-md-6">
+                        <mdb-form-control class="mb-4">
+                            <input mdbValidate mdbInput class="form-control" formControlName="apellidoNovio"
+                            placeholder="Nombres de los novios" />
+                            <label mdbLabel class="form-label" for="apellidoNovio">
+                                Apellido del novio
+                                <span class="text-danger">*</span>
+                            </label>
+                        </mdb-form-control>
+                    </div>
+                    <div class="col-md-6">
+                        <mdb-form-control class="mb-4">
+                            <input mdbValidate mdbInput class="form-control" formControlName="direccion1" placeholder="Dirección 1" />
+                            <label mdbLabel class="form-label" for="direccion1">
+                                Dirección 1
+                                <span class="text-danger">*</span>
+                            </label>
+                        </mdb-form-control>
+                    </div>
+                    <div class="col-md-6">
+                        <mdb-form-control class="mb-4">
+                            <input mdbValidate mdbInput class="form-control" formControlName="direccion2" placeholder="Dirección 1" />
+                            <label mdbLabel class="form-label" for="direccion2">
+                                Dirección 2
+                                <span class="text-danger">*</span>
+                            </label>
+                        </mdb-form-control>
                     </div>
                 </div>
             </ng-container>

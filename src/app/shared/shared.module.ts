@@ -11,6 +11,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { OrderByPipe } from './pipes/order-by.pipe';
 import { LoaderComponent } from './components/loader/loader.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
+import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
+import { MdBootstrapModule } from './md-bootstrap/md-bootstrap.module';
 
 @NgModule({
   declarations: [MenuComponent, TapToTopComponent,HeaderComponent,BreadcrumbComponent,FooterComponent, CenterMenuComponent, OrderByPipe, LoaderComponent],
@@ -22,14 +25,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     BreadcrumbComponent,
     FooterComponent,
-    OrderByPipe
+    OrderByPipe,
+    MdBootstrapModule
   ],
   imports: [
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
     FormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MdBootstrapModule
   ]
 })
 export class SharedModule { }

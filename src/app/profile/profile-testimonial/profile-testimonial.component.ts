@@ -22,7 +22,7 @@ export class ProfileTestimonialComponent implements OnChanges {
     this.formBloc = this.fb.group({
       uuid: [null],
       autor: [null, Validators.required],
-      parentezco: [null],
+      parentezco: [null, Validators.required],
       descripcion: [null, Validators.required],
     });
   }
@@ -33,12 +33,17 @@ export class ProfileTestimonialComponent implements OnChanges {
     }
   }
 
+  valid() {
+    return this.formBloc.valid;
+  }
+
   guardar(content: any){
     
-    if (!this.formBloc.valid) {
+    if (!this.valid()) {
       this.form.markAllAsTouched();
       return;
     }
+
 
     this.blocs.push({
       ...this.formBloc.value,

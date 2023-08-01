@@ -40,70 +40,72 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-12">
+
+    <div class="col-md-12">
       <form [formGroup]="nav">
         <app-profile-nav [form]="nav"></app-profile-nav>
       </form>
     </div>
-    <div class="col-12">
+
+    <div class="col-md-12">
       <form [formGroup]="header">
         <app-profile-header [form]="header"></app-profile-header>
       </form>
     </div>
-    <div class="col-12">
+
+    <div class="col-md-12">
       <form [formGroup]="about">
         <app-profile-about [form]="about"></app-profile-about>
       </form>
     </div>
-    <div class="col-12">
+
+    <div class="col-md-12">
       <form [formGroup]="banner">
         <app-profile-banner [form]="banner"></app-profile-banner>
       </form>
     </div>
-    <div class="col-12">
+
+    <div class="col-md-12">
       <form [formGroup]="gallery">
         <app-profile-gallery [form]="gallery"></app-profile-gallery>
       </form>
     </div>
-    <div class="col-12">
+
+    <div class="col-md-12">
       <form [formGroup]="countdown">
         <app-profile-countdown [form]="countdown"></app-profile-countdown>
       </form>
     </div>
-    <div class="col-12">
+
+    <div class="col-md-12">
       <form [formGroup]="blog">
         <app-profile-blog [form]="blog"></app-profile-blog>
       </form>
     </div>
-    <div class="col-12">
+
+    <div class="col-md-12">
       <form [formGroup]="when">
         <app-profile-when-n-where [form]="when"></app-profile-when-n-where>
       </form>
     </div>
-    <!-- <div class="col-12">
-      <form [formGroup]="counter">
-        <app-profile-counter [form]="counter"></app-profile-counter>
-      </form>
-    </div> -->
-    <div class="col-12">
+
+    <div class="col-md-12">
       <form [formGroup]="testimonial">
         <app-profile-testimonial [form]="testimonial"></app-profile-testimonial>
       </form>
     </div>
 
-    <div class="col-12">
+    <div class="col-md-12">
       <div class="container pt-4">
-        <button class="btn btn-success" type="button" (click)="guardarFormulario()">
-          Guardar
-        </button>
+        <div class="card">
+          <div class="card-body text-right">
+            <button class="btn btn-success" type="button" (click)="guardarFormulario()" [disabled]="!valid()">
+              Guardar
+            </button>
+          </div>
+        </div>
       </div>
-
     </div>
 
-    <!-- <div class="col-12">
-      <form [formGroup]="footer">
-        <app-profile-footer [form]="footer"></app-profile-footer>
-      </form>
-    </div> -->
   </div>
 </div>

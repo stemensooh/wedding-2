@@ -40,27 +40,54 @@
         <ng-container [formGroup]="formBloc">
             <div class="row">
                 <div class="col-md-6">
-                    <label>Titulo <span class="text-danger">*</span></label>
-                    <input class="form-control" formControlName="titulo" />
+                    <mdb-form-control class="mb-4">
+                        <input mdbValidate mdbInput class="form-control" formControlName="titulo" type="text" />
+                        <label mdbLabel class="form-label" for="titulo">
+                            Titulo
+                            <span class="text-danger">*</span>
+                        </label>
+                    </mdb-form-control>
                 </div>
                 <div class="col-md-6">
-                    <label>Fecha <span class="text-danger">*</span></label>
-                    <input class="form-control" formControlName="fecha" type="date" />
+                    <mdb-form-control class="mb-4">
+                        <input mdbValidate mdbInput class="form-control" formControlName="fecha" type="date" />
+                        <label mdbLabel class="form-label" for="fecha">
+                            Fecha
+                            <span class="text-danger">*</span>
+                        </label>
+                    </mdb-form-control>
                 </div>
                 <div class="col-md-12">
-                    <label>Lugar <span class="text-danger">*</span></label>
-                    <input class="form-control" formControlName="lugar" />
+                    <mdb-form-control class="mb-4">
+                        <input mdbValidate mdbInput class="form-control" formControlName="lugar" type="text" />
+                        <label mdbLabel class="form-label" for="lugar">
+                            Lugar
+                            <span class="text-danger">*</span>
+                        </label>
+                    </mdb-form-control>
                 </div>
                 <div class="col-md-12">
-                    <label>Foto (475 x 370) <span class="text-danger">*</span></label>
-                    <input class="form-control" formControlName="foto" type="file" accept="image/*" id="foto-blog" (change)="convertFileToBase64($event)"/>
+                    <mdb-form-control class="mb-4">
+                        <label mdbLabel class="form-label" for="file">
+                            Foto (475 x 370)
+                            <span class="text-danger">*</span>
+                        </label>
+                        <input mdbValidate mdbInput class="form-control" formControlName="foto" type="file"
+                            accept="image/*" id="foto-blog" (change)="convertFileToBase64($event)" />
+                    </mdb-form-control>
                 </div>
                 <div class="col-md-12">
-                    <label>Descripción <span class="text-danger">*</span></label>
-                    <textarea rows="3" class="form-control" formControlName="descripcion" ></textarea>
+                    <mdb-form-control class="mb-4">
+                        <textarea mdbValidate mdbInput rows="3" class="form-control"
+                            formControlName="descripcion"></textarea>
+                        <label mdbLabel class="form-label" for="descripcion">
+                            Descripción
+                            <span class="text-danger">*</span>
+                        </label>
+                    </mdb-form-control>
                 </div>
                 <div class="col-md-12 mt-3">
-                    <button (click)="guardar(content)" class="btn btn-success">Guardar</button>
+                    <button (click)="guardar(content)" class="btn btn-success" [disabled]="!valid()">Guardar</button>
                 </div>
             </div>
         </ng-container>

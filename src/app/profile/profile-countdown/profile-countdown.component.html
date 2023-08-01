@@ -7,32 +7,40 @@
             <ng-container [formGroup]="form">
                 <div class="row">
                     <div class="col-md-3">
-                        <label>
-                            Fecha de matrimonio
-                            <span class="text-danger">*</span>
-                        </label>
-                        <input class="form-control" formControlName="fecha" type="date" />
+                        <mdb-form-control class="mb-4">
+                            <input mdbValidate mdbInput class="form-control" formControlName="fecha" type="date" />
+                            <label mdbLabel class="form-label" for="fecha">
+                                Fecha de matrimonio
+                                <span class="text-danger">*</span>
+                            </label>
+                        </mdb-form-control>
                     </div>
                     <div class="col-md-3">
-                        <label>
-                            Hora de matrimonio
-                            <span class="text-danger">*</span>
-                        </label>
-                        <input class="form-control" formControlName="hora" type="time" />
+                        <mdb-form-control class="mb-4">
+                            <input mdbValidate mdbInput class="form-control" formControlName="hora" type="time" />
+                            <label mdbLabel class="form-label" for="hora">
+                                Hora de matrimonio
+                                <span class="text-danger">*</span>
+                            </label>
+                        </mdb-form-control>
                     </div>
                     <div class="col-md-3">
-                        <label>
-                            Dirección (Texto)
-                            <span class="text-danger">*</span>
-                        </label>
-                        <input class="form-control" formControlName="direccion" placeholder="Dirección (Texto)" />
+                        <mdb-form-control class="mb-4">
+                            <input mdbValidate mdbInput class="form-control" formControlName="direccion" placeholder="Dirección (Texto)" />
+                            <label mdbLabel class="form-label" for="direccion">
+                                Dirección (Texto)
+                                <span class="text-danger">*</span>
+                            </label>
+                        </mdb-form-control>
                     </div>
                     <div class="col-md-3">
-                        <label>
-                            Dirección (Url)
-                            <span class="text-danger">*</span>
-                        </label>
-                        <input class="form-control" formControlName="url" placeholder=" Dirección (Url)" />
+                        <mdb-form-control class="mb-4">
+                            <input mdbValidate mdbInput class="form-control" formControlName="url" placeholder=" Dirección (Url)" />
+                            <label mdbLabel class="form-label" for="url">
+                                Dirección (Url)
+                                <span class="text-danger">*</span>
+                            </label>
+                        </mdb-form-control>
                     </div>
                 </div>
             </ng-container>

@@ -68,9 +68,13 @@ export class ProfileWhenNWhereComponent implements OnChanges {
     });
   }
 
+  valid() {
+    return this.formBloc.valid;
+  }
+
   guardar(content: any){
     
-    if (!this.formBloc.valid) {
+    if (!this.valid()) {
       this.form.markAllAsTouched();
       return;
     }

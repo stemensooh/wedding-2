@@ -52,15 +52,18 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  guardarFormulario() {
-    console.log(this.form.value);
-    // localStorage.setItem('wedding', JSON.stringify(this.form.value));
+  valid() {
+    return this.form.valid;
+  }
+  
 
-    // if (!this.form.valid) {
-    //   this.form.markAllAsTouched();
-    //   console.log('no es valido')
-    //   return;
-    // }
+  guardarFormulario() {
+    
+    if (!this.valid()) {
+      this.form.markAllAsTouched();
+      return;
+    }
+
     const weddingId = this.form.value._id;
 
     const nav = this.nav.value;

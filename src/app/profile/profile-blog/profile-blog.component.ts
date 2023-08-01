@@ -29,14 +29,17 @@ export class ProfileBlogComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['form'].currentValue){
+    if (changes['form'].currentValue) {
       this.blocs = changes['form'].currentValue.value.bloc;
     }
   }
 
-  guardar(content: any){
-    
-    if (!this.formBloc.valid) {
+  valid() {
+    return this.formBloc.valid;
+  }
+
+  guardar(content: any) {
+    if (!this.valid()) {
       this.form.markAllAsTouched();
       return;
     }
@@ -44,15 +47,15 @@ export class ProfileBlogComponent implements OnChanges {
     this.blocs.push({
       ...this.formBloc.value,
       foto: this.imagen,
-      uuid: crypto.randomUUID()
+      uuid: crypto.randomUUID(),
     });
 
     this.form.patchValue({
-      bloc: this.blocs
+      bloc: this.blocs,
     });
-    
+
     this.limpiar();
-    this.getDismissReason(content)
+    this.getDismissReason(content);
   }
 
   convertFileToBase64(event: Event) {
@@ -63,17 +66,17 @@ export class ProfileBlogComponent implements OnChanges {
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = () => {
-          this.imagen = (reader.result as string);
+          this.imagen = reader.result as string;
           return resolve(reader.result);
-        }
+        };
         reader.onerror = reject;
       });
     }
 
-    return null
+    return null;
   }
 
-  limpiar(){
+  limpiar() {
     this.imagen = '';
     this.formBloc = this.fb.group({
       uuid: [null],
@@ -108,10 +111,10 @@ export class ProfileBlogComponent implements OnChanges {
     }
   }
 
-  eliminar(uuid: string){
-    this.blocs = this.blocs.filter(x => x.uuid !== uuid);
+  eliminar(uuid: string) {
+    this.blocs = this.blocs.filter((x) => x.uuid !== uuid);
     this.form.patchValue({
-      bloc: this.blocs
+      bloc: this.blocs,
     });
   }
 }

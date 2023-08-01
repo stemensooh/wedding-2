@@ -18,7 +18,7 @@ import { ProfileService } from '../core/services/profile.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FotoComponent } from '../shared/components/foto/foto.component';
 import { ListaComponent } from '../shared/components/foto/lista/lista.component';
-import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,7 @@ import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
     ReactiveFormsModule,
     FotoComponent,
     ListaComponent,
-    MdbCollapseModule
+    SharedModule
   ],
   providers: [
     ProfileService

@@ -19,6 +19,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { AuthControlService } from './auth-control.service';
 import { AuthService } from '../core/services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
+import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [AuthComponent, LoginComponent, SignInComponent, SignUpComponent],
@@ -32,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     // NgxCaptchaModule,
     RecaptchaModule,
-    RecaptchaV3Module
+    RecaptchaV3Module,
+    SharedModule
   ],
   providers: [
     AuthControlService,

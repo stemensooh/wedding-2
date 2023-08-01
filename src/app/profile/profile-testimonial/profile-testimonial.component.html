@@ -38,19 +38,34 @@
         <ng-container [formGroup]="formBloc">
             <div class="row">
                 <div class="col-md-6">
-                    <label>Autor <span class="text-danger">*</span></label>
-                    <input class="form-control" formControlName="autor" />
+                    <mdb-form-control class="mb-4">
+                        <input mdbValidate mdbInput class="form-control" formControlName="autor" type="text" />
+                        <label mdbLabel class="form-label" for="autor">
+                            Autor
+                            <span class="text-danger">*</span>
+                        </label>
+                    </mdb-form-control>
                 </div>
                 <div class="col-md-6">
-                    <label>Parentezco <span class="text-danger">*</span></label>
-                    <input class="form-control" formControlName="parentezco" />
+                    <mdb-form-control class="mb-4">
+                        <input mdbValidate mdbInput class="form-control" formControlName="parentezco" type="text" />
+                        <label mdbLabel class="form-label" for="parentezco">
+                            Parentezco
+                            <span class="text-danger">*</span>
+                        </label>
+                    </mdb-form-control>
                 </div>
                 <div class="col-md-12">
-                    <label>Descripción <span class="text-danger">*</span></label>
-                    <textarea rows="3" class="form-control" formControlName="descripcion" ></textarea>
+                    <mdb-form-control class="mb-4">
+                        <textarea mdbValidate mdbInput rows="3" class="form-control" formControlName="descripcion" ></textarea>
+                        <label mdbLabel class="form-label" for="descripcion">
+                            Descripción
+                            <span class="text-danger">*</span>
+                        </label>
+                    </mdb-form-control>
                 </div>
                 <div class="col-md-12 mt-3">
-                    <button (click)="guardar(content)" class="btn btn-success">Guardar</button>
+                    <button (click)="guardar(content)" class="btn btn-success" [disabled]="!valid()">Guardar</button>
                 </div>
             </div>
         </ng-container>
