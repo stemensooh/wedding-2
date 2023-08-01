@@ -8,5 +8,6 @@ export const environment = {
     captcha:{
         siteKey: '6Lf_21knAAAAANVxG3GrNl2GkXFbI_FHp_q8jo1h',
         secretKey: '6Lf_21knAAAAAH4Ob5aZRbQYs9D-8HIJvFM1Kd_h'
-    }
+    },
+    urlDeploy: 'https://nuestro-mejor-dia.netlify.app/#/'
 };
