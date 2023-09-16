@@ -42,8 +42,7 @@
                                                 <h6 class="blog-place">
                                                     {{blog.lugar}}
                                                 </h6>
-                                                <p class="blog-para">
-                                                    {{blog.descripcion}}
+                                                <p class="blog-para" [innerHTML]="blog.descripcion">
                                                 </p>
                                                 <!-- <button class="btn btn-blog">
                                                     {{blog.btn}}

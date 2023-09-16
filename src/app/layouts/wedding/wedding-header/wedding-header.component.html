@@ -15,12 +15,10 @@
                       <div class="center-text m-t-50">
                           <div class="simple-text">
                               <div class="set-relative rightFadeInOut header-text">
-                                  <img src="assets/images/wedding-img/logo-h1.png" alt="" class="logo-h1">
+                                  <!-- <img src="assets/images/wedding-img/logo-h1.png" alt="" class="logo-h1"> -->
                               </div>
-                              <p class="header-sub-text">
-                                {{
-                                    header.mensaje
-                                }}
+                              <p class="header-sub-text" [innerHTML]="header.mensaje" >
+                                
                               </p>
                               <div class="rightfadediv">
                                   <div>
