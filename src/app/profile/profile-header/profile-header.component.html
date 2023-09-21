@@ -8,15 +8,22 @@
     <div class="card-body">
       <ng-container [formGroup]="form">
         <div class="row">
-          <div class="col-md-6 mb-4">
-            <app-foto [medidas]="IMAGE" (imagenesOut)="cargarImagen($event)"></app-foto>
-          </div>
-          <div class="col-md-6 mb-4">
+          <div class="col-md-12 mb-4">
             <mdb-form-control class="mb-4">
               <input mdbValidate mdbInput formControlName="tituloPagina" type="text" id="tituloPagina" (keyup)="onKeyupEvent()"
                 class="form-control" />
               <label mdbLabel class="form-label" for="tituloPagina">Nombres</label>
             </mdb-form-control>
+          </div>
+          
+          <div class="col-md-6 mb-4">
+            <app-foto [medidas]="IMAGE" (imagenesOut)="cargarImagen($event)"></app-foto>
+          </div>
+          <div class="col-md-6 mb-4">
+            <app-foto [dosFilas]="false" [label]="'Invitación'" [medidas]="IMAGE2" (imagenesOut)="cargarInvitacion($event)"></app-foto>
+          </div>
+
+          <div class="col-md-12 mb-4">
             <mdb-form-control class="mb-4">
               <textarea mdbValidate mdbInput rows="7" class="form-control" formControlName="mensaje" id="mensaje"
                 placeholder="Texto libre"></textarea>
@@ -25,9 +32,6 @@
                 <span class="text-danger">*</span>
               </label>
             </mdb-form-control>
-          </div>
-          <div class="col-md-12 mb-4">
-            <app-foto [dosFilas]="true" [label]="'Invitación'" [medidas]="IMAGE2" (imagenesOut)="cargarInvitacion($event)"></app-foto>
           </div>
         </div>
       </ng-container>
