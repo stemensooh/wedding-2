@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { IMAGE_1921_x_1100, IMAGE_714_x_720 } from 'src/app/core/constants/images';
 import { Header, WeddingResponseDto } from 'src/app/core/dtos/wedding-response.dto';
 
@@ -25,9 +26,19 @@ export class WeddingHeaderComponent implements OnInit, OnChanges {
     }
   }
 
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+  }
+
+  verInvitacion(){
+    this.route.params.subscribe((params) => {
+
+      this.router.navigate([params['titulo'], 'invitacion'])
+
+    });
+
+    
   }
 
 }

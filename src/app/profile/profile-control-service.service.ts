@@ -37,11 +37,10 @@ export class ProfileControlServiceService {
         ],
         tituloPagina: [
           wedding?.tituloPagina,
-          // {
-          //   value: wedding?.tituloPagina,
-          //   disabled: wedding,
-          // },
           Validators.required,
+        ],
+        invitacion: [
+          wedding?.invitacion,
         ],
         foto: [
           wedding?.headers && wedding?.headers.length > 0

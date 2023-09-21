@@ -43,4 +43,11 @@ export class WeddingService {
       .get<WeddingResponseDto>(url)
       .pipe(catchError(this.handleError<WeddingResponseDto>('getTitulo')));
   }
+
+  getInvitacion(titulo: string) {
+    const url = `${this.urlApi}/invitacion/${titulo}`;
+    return this.httpCliente
+      .get<WeddingResponseDto>(url)
+      .pipe(catchError(this.handleError<WeddingResponseDto>('getInvitacion')));
+  }
 }

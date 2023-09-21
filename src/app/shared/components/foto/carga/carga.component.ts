@@ -17,6 +17,7 @@ import { environment } from 'src/environments/environment';
 })
 export class CargaComponent implements OnInit {
   @Input() tiposDocumentosCarga: string = '0';
+  @Input() label: string = 'Foto';
   @Output() imagen = new EventEmitter<ImagenDto>();
 
   form: FormGroup;

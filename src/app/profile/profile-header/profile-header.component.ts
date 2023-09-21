@@ -12,6 +12,7 @@ import { environment } from 'src/environments/environment';
 export class ProfileHeaderComponent implements OnChanges {
   @Input() form!: FormGroup;
   IMAGE = IMAGE_745_x_849;
+  IMAGE2 = IMAGE_745_x_849;
   URL_DEPLOY = environment.urlDeploy;
 
   cargarImagen(imagenes: ImagenDto[]) {
@@ -22,9 +23,18 @@ export class ProfileHeaderComponent implements OnChanges {
     }
   }
 
+  cargarInvitacion(imagenes: ImagenDto[]) {
+    if (imagenes.length > 0) {
+      this.form.patchValue({
+        invitacion: imagenes[0].archivo,
+      });
+    }
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['form'].currentValue) {
       this.IMAGE = changes['form'].currentValue.value.foto;
+      this.IMAGE2 = changes['form'].currentValue.value.invitacion;
       if (changes['form'].currentValue.value.tituloPagina){
         this.URL_DEPLOY = environment.urlDeploy + changes['form'].currentValue.value.tituloPagina;
       }

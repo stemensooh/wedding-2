@@ -1,11 +1,11 @@
 <div class="row">
   <div [class]="mostrarLista ? 'col-6' : 'col-12'" >
     <div class="row">
-      <div class="col-12 text-center">
+      <div [class]="dosFilas ? 'col-6 text-center' : 'col-12 text-center'">
         <app-vista-previa [medidas]="medidas" ></app-vista-previa>
       </div>
-      <div class="col-12 ">
-        <app-carga (imagen)="agregarDocumento($event)"></app-carga>
+      <div [class]="dosFilas ? 'col-6 text-center' : 'col-12 text-center'">
+        <app-carga [label]="label" (imagen)="agregarDocumento($event)"></app-carga>
       </div>
     </div>
   </div>

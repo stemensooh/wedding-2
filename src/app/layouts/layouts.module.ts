@@ -28,6 +28,7 @@ import { WeddingSubscribeComponent } from "./wedding/wedding-subscribe/wedding-s
 import { WeddingFooterComponent } from "./wedding/wedding-footer/wedding-footer.component";
 import { WeddingService } from "../core/services/wedding.service";
 import { HttpClientModule } from "@angular/common/http";
+import { WeddingInvitacionComponent } from './wedding/wedding-invitacion/wedding-invitacion.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { HttpClientModule } from "@angular/common/http";
     WeddingBrandComponent,
     WeddingSubscribeComponent,
     WeddingFooterComponent,
+    WeddingInvitacionComponent,
     
   ],
 

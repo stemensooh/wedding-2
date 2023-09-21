@@ -1,6 +1,7 @@
 export class WeddingResponseDto {
   _id?:string
   tituloPagina?:string
+  invitacion?:string
   createdAt?:string
   __v?:number
   abouts?:About[]

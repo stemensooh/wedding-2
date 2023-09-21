@@ -15,7 +15,9 @@ export class FotoComponent {
   @Input() multiple: boolean = false;
   @Input() medidas: string = '';
   @Input() mostrarLista: boolean = false;
+  @Input() dosFilas: boolean = false;
   @Input() imagenes: ImagenDto[] = [];
+  @Input() label: string = 'Foto';
   @Output() imagenesOut = new EventEmitter<ImagenDto[]>();
 
   constructor() {}

@@ -18,9 +18,8 @@ export class WeddingComponent implements OnInit {
     private route: ActivatedRoute,
     private title: Title,
     private weddingService: WeddingService,
-    private _router: ActivatedRoute
   ) {
-    this._router.params.subscribe((params) => {
+    this.route.params.subscribe((params) => {
       this.weddingService
         .getTitulo(params['titulo'])
         .subscribe((data: WeddingResponseDto) => {
