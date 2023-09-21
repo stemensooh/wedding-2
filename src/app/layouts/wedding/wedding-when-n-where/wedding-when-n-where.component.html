@@ -33,12 +33,16 @@
                                       </div>
                                   </div>
                                   <div class="price-features font-primary">
-                                      <!-- <h4 class="price-feature font-primary">{{place.des1}}</h4>
-                                      <h4 class="price-feature font-primary">{{place.des2}} </h4>
-                                      <h4 class="price-feature font-primary m-0">{{place.des3}}</h4> -->
-                                      <p>
-                                        {{evento.descripcion}}
-                                    </p>
+                                      <!-- <h4 class="price-feature font-primary">place.des1</h4>
+                                      <h4 class="price-feature font-primary">place.des2 </h4>
+                                      <h4 class="price-feature font-primary m-0">place.des3</h4> -->
+                                     
+                                      <a target="_blank" [href]="evento.ubicacion">
+                                        <h3 class="m-b-15 zexson-text">
+                                          <i class="fa fa-map-marker m-r-10" aria-hidden="true"></i>
+                                          <p [innerHTML]="evento.descripcion"></p>
+                                        </h3>
+                                      </a>
                                   </div>
                               </div>
                           </div>

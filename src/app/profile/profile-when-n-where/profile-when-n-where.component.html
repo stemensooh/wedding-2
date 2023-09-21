@@ -16,6 +16,9 @@
                 <tbody>
                     <tr *ngFor="let item of blocs">
                         <td>
+                            <button type="button" class="btn btn-info" (click)="ver(content, item?.uuid??'')">
+                                <i class="fa fa-eye"></i>
+                            </button>
                             <button type="button" class="btn btn-danger" (click)="eliminar(item?.uuid??'')">
                                 <i class="fa fa-trash"></i>
                             </button>
@@ -37,7 +40,7 @@
     <div class="modal-body">
         <ng-container [formGroup]="formBloc">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <mdb-form-control class="mb-4">
                         <input mdbValidate mdbInput class="form-control" formControlName="titulo" type="text" />
                         <label mdbLabel class="form-label" for="titulo">
@@ -51,6 +54,15 @@
                         <input mdbValidate mdbInput class="form-control" formControlName="hora" type="time" />
                         <label mdbLabel class="form-label" for="hora">
                             Hora
+                            <span class="text-danger">*</span>
+                        </label>
+                    </mdb-form-control>
+                </div>
+                <div class="col-md-6">
+                    <mdb-form-control class="mb-4">
+                        <input mdbValidate mdbInput class="form-control" formControlName="ubicacion" type="text" />
+                        <label mdbLabel class="form-label" for="ubicacion">
+                            Ubicación
                             <span class="text-danger">*</span>
                         </label>
                     </mdb-form-control>

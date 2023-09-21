@@ -106,6 +106,7 @@ export class When {
   titulo?:string
   hora?:string
   descripcion?:string
+  ubicacion?:string
   createdAt?:string
   __v?:number
   uuid?: string;
