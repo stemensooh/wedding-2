@@ -1,0 +1,73 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Container wrapper -->
+    <div class="container">
+      <!-- Navbar brand -->
+      <a class="navbar-brand me-2" [routerLink]="'/'" >
+        <b>BCARD</b>
+      </a>
+  
+      <!-- Toggle button -->
+      <button class="navbar-toggler" type="button" (click)="buttonsNav.toggle()" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarButtonsExample" mdbCollapse #buttonsNav="mdbCollapse">
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/profile" routerLinkActive="active">Mantenimiento</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/profile/history', tituloPagina]" routerLinkActive="active">Historial de vistas</a>
+          </li>
+        </ul>
+        <!-- Left links -->
+  
+        <div class="d-flex align-items-center">
+          <h6 class="px-3 me-2">
+            {{ usuarioToken.user.name }} {{ usuarioToken.user.lastName }}
+          </h6>
+          <button type="button" class="btn btn-primary me-3" (click)="cerrarSesion()">
+            Cerrar sesión
+          </button>
+        </div>
+      </div>
+      <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+  
+  <div class="container">
+    
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>ip</th>
+                <th>sec-ch-ua</th>
+                <th>sec-ch-ua-mobile</th>
+                <th>sec-ch-ua-platform</th>
+                <th>sec-fetch-dest</th>
+                <th>sec-fetch-mode</th>
+                <th>sec-fetch-site</th>
+                <th>user-agent</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of items">
+                <td>{{ item.ip }}</td>
+                <td>{{ item.secChUa }}</td>
+                <td>{{ item.secChUaMobile }}</td>
+                <td>{{ item.secChUaPlatform }}</td>
+                <td>{{ item.secFetchDest }}</td>
+                <td>{{ item.secFetchMode }}</td>
+                <td>{{ item.secFetchSite }}</td>
+                <td>{{ item.userAgent }}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+  </div>

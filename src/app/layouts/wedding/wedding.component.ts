@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { WeddingResponseDto } from 'src/app/core/dtos/wedding-response.dto';
+import { ProfileService } from 'src/app/core/services/profile.service';
 import { WeddingService } from 'src/app/core/services/wedding.service';
 import { ColorScssService } from 'src/app/shared/service/color-scss.service';
 
@@ -18,15 +19,24 @@ export class WeddingComponent implements OnInit {
     private route: ActivatedRoute,
     private title: Title,
     private weddingService: WeddingService,
+    private profileService: ProfileService
   ) {
     this.route.params.subscribe((params) => {
+      const titulo = params['titulo'];
+
       this.weddingService
-        .getTitulo(params['titulo'])
+        .getTitulo(titulo)
         .subscribe((data: WeddingResponseDto) => {
           this.wedding = data;
           console.log(this.wedding);
         });
+
+        this.profileService.crearHistory(titulo).subscribe(data => {
+          console.log(data);
+        })
     });
+
+    
   }
 
   ngOnInit() {

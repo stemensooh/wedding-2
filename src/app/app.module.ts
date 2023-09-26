@@ -30,6 +30,7 @@ import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { httpInterceptorProviders } from './core/http-interceptors';
 
 
 @NgModule({
@@ -54,7 +55,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     RecaptchaV3Module,
     
   ],
-  providers: [{ provide: RECAPTCHA_V3_SITE_KEY, useValue: environment.captcha.siteKey }],
+  providers: [{ provide: RECAPTCHA_V3_SITE_KEY, useValue: environment.captcha.siteKey }, httpInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from './profile.component';
 import { authGuard } from '../core/guards/auth.guard';
+import { ProfileViewHistoryComponent } from './profile-view-history/profile-view-history.component';
 
 const routes: Routes = [
   {
@@ -10,6 +11,13 @@ const routes: Routes = [
     component: ProfileComponent,
     data: {
       title: 'profile',
+    },
+  },
+  {
+    path: 'history/:titulo',
+    component: ProfileViewHistoryComponent,
+    data: {
+      title: 'history',
     },
   },
   // {

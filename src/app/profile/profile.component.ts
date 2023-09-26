@@ -24,6 +24,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   sub = new Subscription();
   wedding!: WeddingResponseDto;
   usuarioToken!: UsuarioToken;
+  tituloPagina: string | undefined = '';
 
   constructor(
     private authService: AuthService,
@@ -41,6 +42,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
       .subscribe((data: WeddingResponseDto) => {
         this.wedding = data;
         this.form = control.toForm(this.wedding);
+        this.tituloPagina = this.wedding.tituloPagina;
       });
   }
 

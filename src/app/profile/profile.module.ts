@@ -19,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FotoComponent } from '../shared/components/foto/foto.component';
 import { ListaComponent } from '../shared/components/foto/lista/lista.component';
 import { SharedModule } from '../shared/shared.module';
+import { ProfileViewHistoryComponent } from './profile-view-history/profile-view-history.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { SharedModule } from '../shared/shared.module';
     ProfileCounterComponent,
     ProfileTestimonialComponent,
     ProfileFooterComponent,
-    ProfileNavComponent
+    ProfileNavComponent,
+    ProfileViewHistoryComponent
   ],
   imports: [
     CommonModule,

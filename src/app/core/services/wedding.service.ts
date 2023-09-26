@@ -50,4 +50,10 @@ export class WeddingService {
       .get<WeddingResponseDto>(url)
       .pipe(catchError(this.handleError<WeddingResponseDto>('getInvitacion')));
   }
+
+  getHistory(){
+    const url = `${this.urlApi}/history`;
+
+    return this.httpCliente.get(url);
+  }
 }

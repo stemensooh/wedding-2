@@ -10,6 +10,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { WeddingRequestDto } from '../dtos/wedding.request.dto';
 import { HttpResult, httpOptions } from '../models/http';
+import { ViewHistoryResponse } from '../dtos/view-history-response.dto';
 
 @Injectable({
   providedIn: 'root',
@@ -44,5 +45,23 @@ export class ProfileService {
     return this.httpCliente
       .put<HttpResult>(url, update, httpOptions)
       .pipe(catchError(this.handleError<HttpResponse<HttpResult>>('update')));
+  }
+
+  getHistory(titulo: string) {
+    const url = `${this.urlApi}/history/${titulo}`;
+
+    return this.httpCliente
+      .get<ViewHistoryResponse[]>(url)
+      .pipe(catchError(this.handleError<ViewHistoryResponse[]>('getHistory')));
+  }
+
+  crearHistory(titulo: string) {
+    const url = `${this.urlApi}/history/${titulo}`;
+
+    return this.httpCliente
+      .post(url, null, httpOptions)
+      .pipe(catchError(this.handleError('crearHistory')));
+
+    // return this.httpCliente.post(url);
   }
 }
