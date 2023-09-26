@@ -8,6 +8,12 @@ export interface ViewHistoryResponse {
   secFetchMode: string;
   secFetchSite: string;
   userAgent: string;
+
+  xEnvoyExternalAddress: string;
+  xForwardedFor: string;
+  usexForwardedProto: string;
+  xRequestId: string;
+  
   ip: string;
   titulo: string;
   createdAt: string;
