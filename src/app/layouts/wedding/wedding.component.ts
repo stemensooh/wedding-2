@@ -28,11 +28,11 @@ export class WeddingComponent implements OnInit {
         .getTitulo(titulo)
         .subscribe((data: WeddingResponseDto) => {
           this.wedding = data;
-          console.log(this.wedding);
+          // console.log(this.wedding);
         });
 
         this.profileService.crearHistory(titulo).subscribe(data => {
-          console.log(data);
+          // console.log(data);
         })
     });
 

@@ -14,7 +14,7 @@ export class WeddingBlogComponent implements OnInit, OnChanges {
     if (changes['wedding'].currentValue) {
       const wedding = changes['wedding'].currentValue as WeddingResponseDto;
       this.blogs = wedding.blogs ?? [];
-      console.log(this.blogs)
+      // console.log(this.blogs)
     }
   }
   constructor() { }
