@@ -46,6 +46,7 @@
     <table class="table table-hover table-bordered">
         <thead>
             <tr>
+                <th>fecha</th>
                 <th>ip</th>
                 <th>sec-ch-ua</th>
                 <th>sec-ch-ua-mobile</th>
@@ -58,6 +59,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let item of items">
+                <td>{{ item.createdAt }}</td>
                 <td>{{ item.ip }}</td>
                 <td>{{ item.secChUa }}</td>
                 <td>{{ item.secChUaMobile }}</td>
