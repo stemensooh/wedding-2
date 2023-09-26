@@ -32,7 +32,7 @@ export class WeddingComponent implements OnInit {
         });
 
         this.profileService.crearHistory(titulo).subscribe(data => {
-          // console.log(data);
+          console.log(data);
         })
     });
 
