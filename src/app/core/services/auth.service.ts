@@ -47,8 +47,14 @@ export class AuthService {
   }
 
   getAuthToken() {
+   try {
     const token = localStorage.getItem('access_token')  ?? '';
-    return jwt_decode(token) as UsuarioToken;
+    if (token) return jwt_decode(token) as UsuarioToken;
+   } catch (error) {
+    
+   }
+
+   return undefined
   }
 
   setAuthToken(authResponse: AuthResponse){

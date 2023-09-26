@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   form: FormGroup;
   sub = new Subscription();
   wedding!: WeddingResponseDto;
-  usuarioToken!: UsuarioToken;
+  usuarioToken?: UsuarioToken;
   tituloPagina: string | undefined = '';
 
   constructor(
@@ -38,7 +38,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.usuarioToken = this.authService.getAuthToken();
 
     this.weddingService
-      .getId(this.usuarioToken.wedding.id)
+      .getId(this.usuarioToken?.wedding?.id ?? '')
       .subscribe((data: WeddingResponseDto) => {
         this.wedding = data;
         this.form = control.toForm(this.wedding);

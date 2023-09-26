@@ -12,7 +12,7 @@ import { WeddingService } from 'src/app/core/services/wedding.service';
   styleUrls: ['./profile-view-history.component.scss'],
 })
 export class ProfileViewHistoryComponent {
-  usuarioToken!: UsuarioToken;
+  usuarioToken?: UsuarioToken;
   tituloPagina: string | undefined = '';
   items: ViewHistoryResponse[] = [];
 

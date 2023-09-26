@@ -28,7 +28,7 @@
 
       <div class="d-flex align-items-center">
         <h6 class="px-3 me-2">
-          {{ usuarioToken.user.name }} {{ usuarioToken.user.lastName }}
+          {{ usuarioToken?.user?.name }} {{ usuarioToken?.user?.lastName }}
         </h6>
         <button type="button" class="btn btn-primary me-3" (click)="cerrarSesion()">
           Cerrar sesión
